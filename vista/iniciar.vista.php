@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <!-- Alba Matamoros Morales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./estils/estilIndex.css">
-    <title>Inici</title>
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="./estils/login.css">
 </head>
 <body>
     <nav>
@@ -24,5 +23,21 @@
             </div>
         </div>
     </nav>
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form action="login.php" method="POST">
+            <label for="username">Nombre de Usuario:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+
+        <div class="form-footer">
+            <p>¿No tienes cuenta? <a href="registro.php">Regístrate</a></p>
+        </div>
+    </div>
 </body>
 </html>

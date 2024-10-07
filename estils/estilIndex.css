@@ -8,7 +8,7 @@
 /* Barra de navegación */
 nav {
     display: flex;
-    justify-content: space-between; /* Para alinear INICI y GESTIÓ D'ARTICLES a la derecha, y PERFIL a la izquierda */
+    justify-content: space-between; /* Separar el contenido en ambos extremos */
     align-items: center;
     background-color: #333; /* Color de fondo de la barra */
     padding: 10px 20px;
@@ -28,7 +28,13 @@ nav button:hover {
     background-color: #555; /* Cambia de color al pasar el ratón */
 }
 
-/* Estilo del botón de perfil a la izquierda */
+/* Sección izquierda (INICI y GESTIÓ D'ARTICLES) */
+nav .left {
+    display: flex;
+    gap: 15px; /* Espaciado entre los botones */
+}
+
+/* Sección derecha para PERFIL */
 nav .perfil {
     position: relative; /* Necesario para el menú desplegable */
 }
@@ -37,6 +43,7 @@ nav .perfil {
 nav .perfil .dropdown-content {
     display: none;
     position: absolute;
+    right: 0; /* Alinear el menú desplegable a la derecha */
     background-color: #333;
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
