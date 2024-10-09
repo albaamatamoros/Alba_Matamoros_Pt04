@@ -1,3 +1,4 @@
+<?php
 //CONNEXIO
 function connexio(){
     //Dades connexio a BD.
@@ -14,3 +15,4 @@ function connexio(){
         die("Error: " . $e->getMessage());
     }
 }
+?>
