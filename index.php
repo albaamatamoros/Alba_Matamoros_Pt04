@@ -19,8 +19,8 @@
         <div class="perfil">
             <button type="button">PERFIL</button>
             <div class="dropdown-content">
-            <button type="button" onclick="location.href='./vista/vistaIniciar.php'">Iniciar sesión</button>
-            <button type="button" onclick="location.href='./vista/vistaIniciar.php'">Registrarse</button>
+            <button type="button" onclick="location.href='./vista/vistaIniciar.php'">Iniciar sessió</button>
+            <button type="button" onclick="location.href='./vista/vistaIniciar.php'">Registrar-se</button>
             </div>
         </div>
     </nav>

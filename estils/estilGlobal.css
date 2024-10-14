@@ -1,0 +1,157 @@
+/* Estilo básico para eliminar márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Barra de navegación fija */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+    z-index: 1000; /* Para asegurar que siempre esté encima del contenido */
+}
+
+/* Botones de la barra de navegación */
+nav button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+nav button:hover {
+    background-color: #555;
+}
+
+/* Sección izquierda (INICI y GESTIÓ D'ARTICLES) */
+nav .left {
+    display: flex;
+    gap: 15px;
+}
+
+/* Sección derecha para PERFIL */
+nav .perfil {
+    position: relative;
+}
+
+/* Ocultar el menú desplegable inicialmente */
+nav .perfil .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Mostrar el menú desplegable al pasar sobre el botón de PERFIL */
+nav .perfil:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilos de los botones dentro del menú desplegable */
+nav .perfil .dropdown-content button {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+}
+
+nav .perfil .dropdown-content button:hover {
+    background-color: #555;
+}
+
+/* Estilo general del body */
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    margin-top: 60px; /* Espacio para la barra de navegación */
+}
+
+/* Contenedor principal del formulario */
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Título del formulario */
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Estilo para las etiquetas */
+.login-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Estilo para los inputs */
+.login-container input[type="text"],
+.login-container input[type="password"],
+.login-container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px;
+}
+
+
+/* Estilo para el botón de enviar */
+.login-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Efecto hover en el botón de enviar */
+.login-container input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Centrar el texto debajo del formulario (enlaces o mensajes) */
+.login-container .form-footer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-container .form-footer a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.login-container .form-footer a:hover {
+    text-decoration: underline;
+}
