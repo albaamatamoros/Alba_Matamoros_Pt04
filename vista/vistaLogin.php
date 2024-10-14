@@ -18,7 +18,7 @@
         <div class="perfil">
             <button type="button">PERFIL</button>
             <div class="dropdown-content">
-                <button type="button" onclick="location.href='../vista/vistaIniciar.php'">Iniciar sessió</button>
+                <button type="button" onclick="location.href='../vista/vistaLogin.php'">Iniciar sessió</button>
                 <button type="button" onclick="location.href='../vista/vistaRegistrarse.php'">Registrar-se</button>
             </div>
         </div>
@@ -26,13 +26,13 @@
     <div class="login-container">
         <h2>Iniciar sessió</h2>
         <form action="login.php" method="POST">
-            <label for="username">Nom d'Usuari:</label>
-            <input type="text" id="username" name="username" required>
+            <label for="usuari">Nom d'Usuari:</label>
+            <input type="text" id="usuari" name="usuari">
 
-            <label for="password">Contrasenya:</label>
-            <input type="password" id="password" name="password" required>
+            <label for="contrasenya">Contrasenya:</label>
+            <input type="password" id="contrasenya" name="contrasenya">
 
-            <input type="submit" value="Iniciar sessió">
+            <input type="submit" action="IniciarSessio" value="Iniciar sessió" onclick="location.href='controlador/controladorLogin.php'">
         </form>
 
         <div class="form-footer">
