@@ -25,14 +25,14 @@
     </nav>
     <div class="login-container">
         <h2>Iniciar sessió</h2>
-        <form action="login.php" method="POST">
+        <form action="../controlador/controladorLogin.php" method="POST">
             <label for="usuari">Nom d'Usuari:</label>
             <input type="text" id="usuari" name="usuari">
 
             <label for="contrasenya">Contrasenya:</label>
             <input type="password" id="contrasenya" name="contrasenya">
 
-            <input type="submit" action="IniciarSessio" value="Iniciar sessió" onclick="location.href='controlador/controladorLogin.php'">
+            <input type="submit" action="IniciarSessio" value="Iniciar sessió">
         </form>
 
         <div class="form-footer">

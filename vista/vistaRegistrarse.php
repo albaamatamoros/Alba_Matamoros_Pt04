@@ -43,7 +43,7 @@
         </form>
 
         <div class="form-footer">
-            <p>Ja tens un compte? <a href="../vista/vistaIniciar.php">Inicia sessió</a></p>
+            <p>Ja tens un compte? <a href="../vista/vistaLogin.php">Inicia sessió</a></p>
         </div>
     </div>
 </body>
