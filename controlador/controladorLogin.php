@@ -9,21 +9,21 @@
         $accion = $_POST["action"];
 
         try {
-            if ($accion == "IniciarSessio"){
+            if ($accion == "Iniciar sessió"){
                 $usuari = $_POST["usuari"];
                 $contrasenya = $_POST["contrasenya"];
 
-                if ($usuari) { $errors[] = "No pots iniciar sessió amb un usuari buit"; } 
-                if ($contrasenya) { $errors[] = "Et cal una contrasenya per iniciar sessió";}
-                if ($errors) {
+                if (empty($usuari)) { $errors[] = "No pots iniciar sessió amb un usuari buit."; } 
+                if (empty($contrasenya)) { $errors[] = "Et cal una contrasenya per iniciar sessió.";}
+                if (empty($errors)) {
                     $existe = comprovarUsuariIContrasenya($usuari, $contrasenya);
                     if ($existe == false){
-                        $errors[] = "Inici de sessió incorrecte, torneu a intentar-ho";
+                        $errors[] = "Iniciar sessió incorrecte, torna a intentar-ho";
                     } else {
                         $_SESSION["login"] = $existe;
                     }
-                    if ($errors){ include "./vista/vistaIniciar.php"; }
-                } else { include "./vista/vistaIniciar.php"; }
+                    if (!empty($errors)){ include "../vista/vistaLogin.php"; }
+                } else { include "../vista/vistaLogin.php"; }
             }
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();

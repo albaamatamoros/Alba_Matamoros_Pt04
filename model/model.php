@@ -1,11 +1,11 @@
 <?php
-    function comprovarUsuariIContrasenya(){
+    function comprovarUsuariIContrasenya($usuari, $contrasenya){
         require_once "connexio.php";
         try {
             $statement = $connexio->prepare('SELECT * FROM usuaris WHERE usuari = :usuari AND contrasenya = :contrasenya');
             $statement->execute(
                 array(
-                ':usuari' => $correu,
+                ':usuari' => $usuari,
                 ':contrasenya' => $contrasenya)
             );
             return $statement->fetch();
