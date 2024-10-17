@@ -7,6 +7,7 @@
     <title>Registrar-se</title>
 </head>
 <body>
+    <!-- HEADER -->
     <nav>
         <!-- Sección izquierda: INICI y GESTIÓ D'ARTICLES -->
         <div class="left">
@@ -23,10 +24,16 @@
             </div>
         </div>
     </nav>
-
+    <!-- BODY -->
     <div class="login-container">
         <h2>Registrar-se</h2>
-        <form action="register.php" method="POST">
+        <form action="../controlador/controladorLogin.php" method="POST">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom">
+
+            <label for="cognoms">Cognoms:</label>
+            <input type="text" id="cognoms" name="cognoms">
+
             <label for="usuari">Nom d'Usuari:</label>
             <input type="text" id="usuari" name="usuari">
 
@@ -36,10 +43,10 @@
             <label for="contrasenya">Contrasenya:</label>
             <input type="password" id="contrasenya" name="contrasenya">
 
-            <label for="confirmar-contrasenya">Confirmar Contrasenya:</label>
-            <input type="password" id="confirmar-contrasenya" name="confirmar-contrasenya">
+            <label for="confirmar_contrasenya">Confirmar Contrasenya:</label>
+            <input type="password" id="confirmar_contrasenya" name="confirmar_contrasenya">
 
-            <input type="submit" value="Registrar-se">
+            <input type="submit" name="action" value="Registrar-se">
         </form>
 
         <div class="form-footer">
