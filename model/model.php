@@ -1,9 +1,10 @@
 <?php
+    require_once "connexio.php";
     //SELECT
     //Comprovar Usuari I Contrasenya exsistent.
     function comprovarUsuariIContrasenya($usuari, $contrasenya){
         try {
-            require_once "connexio.php";
+            $connexio = connexio();
             $statement = $connexio->prepare('SELECT * FROM usuaris WHERE usuari = :usuari AND contrasenya = :contrasenya');
             $statement->execute(
                 array(
@@ -19,12 +20,12 @@
     //Comprovar Usuari I Email.
     function comprovarUsuariIEmail($usuari, $email){
         try {
-            require_once "connexio.php";
-            $statement = $connexio->prepare('SELECT * FROM usuaris WHERE usuari = :usuari AND email = :email');
+            $connexio = connexio();
+            $statement = $connexio->prepare('SELECT * FROM usuaris WHERE correu = :correu OR usuari = :usuari');
             $statement->execute(
                 array(
-                ':usuari' => $usuari,
-                ':email' => $email)
+                ':correu' => $email,
+                ':usuari' => $usuari)
             );
             return $statement->fetch();
         } catch (Exception $e) {
@@ -37,18 +38,24 @@
     function insertarNouUsuari($nom, $cognoms, $usuari, $email, $contrasenya){
         try {
             //Senteècia per inserir
-            require_once "connexio.php";
-            $statement = $connexio->prepare('INSERT INTO usuaris (nom, cognoms, usuari, correu, contrasenya) VALUES (:nom, :cognoms, :usuari, :correu, :contrasenya)');
+            $connexio = connexio();
+            $statement = $connexio->prepare('INSERT INTO usuaris (nom, cognoms, correu, usuari, contrasenya) VALUES (:nom, :cognoms, :correu, :usuari, :contrasenya)');
             $statement->execute( 
             array(
             ':nom' => $nom, 
             ':cognoms' => $cognoms,
-            ':usuari' => $usuari,
             ':correu' => $email,
+            ':usuari' => $usuari,
             ':contrasenya' => $contrasenya)
             );
         }catch (Exception $e){
             echo "Error: " . $e->getMessage();
         }
     }
+
+    //PERSONAGES -------->
+    //INSERT
+    //UPDATE
+    //DELETE
+    //SELECT
 ?>

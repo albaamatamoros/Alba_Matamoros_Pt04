@@ -1,5 +1,6 @@
 <?php
 //CONNEXIO
+    function connexio(){
     //Dades connexio a BD.
     $host = "localhost";
     $nomBD = "pt04_alba_matamoros";
@@ -13,5 +14,6 @@
         //echo "Connexio correcta!!" . "<br />"; 
     } catch (PDOException $e){
         die("Error: " . $e->getMessage());
+    }
     }
 ?>
