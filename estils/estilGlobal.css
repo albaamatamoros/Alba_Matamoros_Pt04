@@ -1,3 +1,4 @@
+/* HEADER */
 /* Estilo básico para eliminar márgenes y padding */
 * {
     margin: 0;
@@ -72,6 +73,8 @@ nav .perfil .dropdown-content button {
 nav .perfil .dropdown-content button:hover {
     background-color: #555;
 }
+
+/* -- BODY -- */
 
 /* Estilo general del body */
 body {

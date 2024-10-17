@@ -1,0 +1,105 @@
+/* Estilo básico para eliminar márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo general del body */
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 60px; /* Espacio superior */
+    padding: 20px;
+}
+
+/* Contenedor principal del formulario */
+.button-container {
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Título */
+.button-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo para las etiquetas */
+.button-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    text-align: left;
+}
+
+/* Estilo para los inputs */
+.button-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Estilo para los botones */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-container .btn {
+    width: 48%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Efecto hover en los botones */
+.button-container .btn:hover {
+    background-color: #555;
+}
+
+/* Estilo de los errores */
+.error-container {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Icono de advertencia */
+.error-container span {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* Estilo de los mensajes de error */
+.error-container p {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
