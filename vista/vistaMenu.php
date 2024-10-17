@@ -13,7 +13,7 @@
             <!-- Sección izquierda: INICI y GESTIÓ D'ARTICLES -->
             <div class="left">
                 <button type="button" onclick="location.href='../index.php'">INICI</button>
-                <button type="button" onclick="location.href='../vista/vistaMenu.php'">GESTIÓ D'ARTICLES</button>
+                <button type="button" onclick="location.href='../vista/vistaMenu.php'">GESTIÓ DE PERSONATGES</button>
             </div>
 
             <!-- Sección derecha: PERFIL (con menú desplegable) -->
