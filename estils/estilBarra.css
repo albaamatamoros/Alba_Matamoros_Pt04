@@ -1,0 +1,75 @@
+/* BARRA DE INICIO */
+/* Estilo básico para eliminar márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Barra de navegación fija */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+    z-index: 1000;
+}
+
+/* Botones de la barra de navegación */
+nav button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+nav button:hover {
+    background-color: #555;
+}
+
+/* Sección izquierda (INICI y GESTIÓ D'ARTICLES) */
+nav .left {
+    display: flex;
+    gap: 15px;
+}
+
+/* Sección derecha para PERFIL */
+nav .perfil {
+    position: relative;
+}
+
+/* Ocultar el menú desplegable inicialmente */
+nav .perfil .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Mostrar el menú desplegable al pasar sobre el botón de PERFIL */
+nav .perfil:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilos de los botones dentro del menú desplegable */
+nav .perfil .dropdown-content button {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+}
+
+nav .perfil .dropdown-content button:hover {
+    background-color: #555;
+}

@@ -4,18 +4,19 @@
     <!-- Alba Matamoros Morales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estils/estilIndex.css">
+    <!-- <link rel="stylesheet" href="estils/estilIndex.css"> -->
+    <link rel="stylesheet" href="estils/estilBarra.css">
     <title>Inici</title>
 </head>
 <body>
     <nav>
-        <!-- Sección izquierda: INICI y GESTIÓ D'ARTICLES -->
+        <!-- INICI y GESTIÓ D'ARTICLES -->
         <div class="left">
             <button type="button" onclick="location.href='index.php'">INICI</button>
             <button type="button" onclick="location.href='vista/vistaMenu.php'">GESTIÓ D'ARTICLES</button>
         </div>
 
-        <!-- Sección derecha: PERFIL (con menú desplegable) -->
+        <!-- PERFIL -->
         <div class="perfil">
             <button type="button">PERFIL</button>
             <div class="dropdown-content">

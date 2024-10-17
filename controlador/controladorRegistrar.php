@@ -34,7 +34,9 @@
                     }
                     if (!empty($errors)){ include "../vista/vistaRegistrarse.php"; }
                 } else { include "../vista/vistaRegistrarse.php"; }
-            }
+            } else { 
+                $errors[] = "No es pot completar aquesta acció.";
+                include "../vista/vistaModificar.php"; }
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
         }

@@ -24,7 +24,9 @@
                     }
                     if (!empty($errors)){ include "../vista/vistaLogin.php"; }
                 } else { include "../vista/vistaLogin.php"; }
-            }
+            } else { 
+                $errors[] = "No es pot completar aquesta acció.";
+                include "../vista/vistaModificar.php"; }
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
         }
