@@ -64,7 +64,7 @@
                 <!-- ESBORRAR -->
                 <div class="button-group">
                 <input type="submit" name="action" value="Esborrar" class="btn"/>
-                    <button onclick="location.href='vistaMenu.php'" type="button" class="btn">Tornar</button> 
+                    <button onclick="location.href='../vista/vistaMenu.php'" type="button" class="btn">Tornar</button> 
                 </div>
             </form>
         </div>

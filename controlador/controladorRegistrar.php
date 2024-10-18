@@ -23,6 +23,7 @@
                 if (empty($email)) { $errors[] = "El camp 'correu' és obligatori"; }
                 if (empty($contrasenya)) { $errors[] = "El camp 'contrasenya' és obligatori"; }
                 if (empty($confirmar_contrasenya)) { $errors[] = "El camp 'confirmar contrasenya' és obligatori"; }
+                if ($contrasenya != $confirmar_contrasenya) { $errors[] = "Contrasenya i confirmar contrasenya"; }
                 //Si errors es buit ->
                 if (empty($errors)) {
                     $existe = comprovarUsuariIEmail($usuari, $email);

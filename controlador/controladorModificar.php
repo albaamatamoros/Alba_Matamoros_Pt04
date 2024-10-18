@@ -12,7 +12,7 @@
         $accion = ($_POST["action"]);
 
         try {
-            if ($accion == "Iniciar sessió"){
+            if ($accion == "Modificar"){
                 $nom = $_POST["nom"];
                 $text = $_POST["text"];
                 $id = $_POST["id"];

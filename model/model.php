@@ -64,8 +64,8 @@
     //---------------
 
     //********************************************************
-    //INSERT
 
+    //INSERT
     //Inserir nou personatge.
     function inserir($nom, $text){
         try {
@@ -170,6 +170,33 @@
             $statement = $connexio->prepare('SELECT * FROM personatges WHERE id_personatge = :id_personatge');
             $statement->execute(array(':id_personatge' => $id));
             return $statement->fetch();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    //Mostrar tots els articles.
+    function consultar(){
+        try {
+            $connexio = connexio();
+            $statement = $connexio->prepare('SELECT * FROM personatges');
+            $statement->execute();
+            return $statement->fetchAll();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    //INICIAR SESSIÓN
+    function iniciSessio($usuari){
+        try {
+            $connexio = connexio();
+            $statement = $connexio->prepare('SELECT id_usuari, correu, usuari FROM usuaris WHERE usuari = :usuari');
+            $statement->execute(
+                array(
+                    ':usuari' => $usuari)
+            );
+            return $statement->fetch(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
         }

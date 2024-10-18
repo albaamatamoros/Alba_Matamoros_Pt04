@@ -7,7 +7,6 @@
     require_once "../model/model.php";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $accion = ($_POST["action"]);
-
         try {
             if ($accion == "Iniciar sessió"){
                 $usuari = ($_POST["usuari"]);
@@ -20,7 +19,11 @@
                     if ($existe === false){
                         $errors[] = "Iniciar sessió incorrecte, torna a intentar-ho";
                     } else {
-                        $_SESSION["login"] = $existe;
+                        $result = iniciSessio($usuari);
+                        $_SESSION["loginId"] = $result["id_usuari"];
+                        $_SESSION["loginUsuari"] = $result["usuari"];
+                        $_SESSION["loginCorreu"] = $result["correu"];
+                        header("Location: ../index.php");
                     }
                     if (!empty($errors)){ include "../vista/vistaLogin.php"; }
                 } else { include "../vista/vistaLogin.php"; }

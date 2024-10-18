@@ -1,5 +1,9 @@
 /* BARRA DE INICIO */
 /* Estilo básico para eliminar márgenes y padding */
+body{
+    background-color: #f4f4f4;
+}
+
 * {
     margin: 0;
     padding: 0;
