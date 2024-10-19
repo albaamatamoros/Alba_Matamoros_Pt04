@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="estils/estilIndex.css">
     <link rel="stylesheet" href="estils/estilBarra.css">
     <link rel="stylesheet" href="estilPersonatgesMostrats.css">
-    <?php require_once './model/model.php'; ?>
+    <?php require_once './model/modelPersonatges.php'; ?>
     <title>Inici</title>
 </head>
 <body>

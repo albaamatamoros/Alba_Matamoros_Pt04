@@ -7,7 +7,7 @@
     $correcte = "";
     //Guardem les dades del personatge en concret.
     $PersonatgeBD;
-    require_once "../model/model.php";
+    require_once "../model/modelPersonatges.php";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $accion = ($_POST["action"]);
 

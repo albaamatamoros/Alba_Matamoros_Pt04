@@ -5,7 +5,7 @@
     $exsist = false;
     //Comprovat si tot a estat ok.
     $correcte = "";
-    require_once "../model/model.php";
+    require_once "../model/modelPersonatges.php";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $accion = ($_POST["action"]);
 

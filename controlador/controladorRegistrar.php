@@ -3,7 +3,7 @@
     $errors = [];
     //Comprovar l'exsistencia d'un usuari.
     $exsist = false;
-    require_once "../model/model.php";
+    require_once "../model/modelUsuaris.php";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $accion = $_POST["action"];
 
@@ -14,7 +14,7 @@
                 $cognoms = ($_POST["cognoms"]);
                 $usuari = ($_POST["usuari"]);
                 $email = ($_POST["email"]);
-                $contrasenya = ($_POST["contrasenya"]);
+                $contrasenya = ($_POST["contrassenya"]);
                 $confirmar_contrasenya = ($_POST["confirmar_contrasenya"]);
 
                 if (empty($nom)) { $errors[] = "El camp 'nom' és obligatori"; } 

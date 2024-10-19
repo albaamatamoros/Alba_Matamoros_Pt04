@@ -4,7 +4,7 @@
     $errors = [];
     //Comprovar l'exsistencia d'un usuari.
     $exsist = false;
-    require_once "../model/model.php";
+    require_once "../model/modelUsuaris.php";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $accion = ($_POST["action"]);
         try {
