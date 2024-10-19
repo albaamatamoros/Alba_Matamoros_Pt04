@@ -8,14 +8,15 @@
 
     //INSERT
     //Inserir nou personatge.
-    function inserir($nom, $text){
+    function inserir($nom, $text, $usuariId){
         try {
             $connexio = connexio();
-            $statement = $connexio->prepare('INSERT INTO personatges (nom, cos) VALUES (:nom, :cos)');
+            $statement = $connexio->prepare('INSERT INTO personatges (nom, cos, usuari_id) VALUES (:nom, :cos, :usuari_id)');
             $statement->execute( 
             array(
             ':nom' => $nom, 
-            ':cos' => $text)
+            ':cos' => $text,
+            ':usuari_id' => $usuariId)
             );
         }catch (Exception $e){
             echo "Error: " . $e->getMessage();
@@ -46,15 +47,15 @@
     //DELETE
 
     //Esborrem personatge
-    function esborrar($id, $nom){
+    function esborrar($nom, $id){
         try {
             //Sentència per esborrar.
             $connexio = connexio();
-            $statement = $connexio->prepare('DELETE FROM personatges WHERE id_personatge = :id_personatge OR nom = :nom');
+            $statement = $connexio->prepare('DELETE FROM personatges WHERE nom = :nom OR id_personatge = :id_personatge');
             $statement->execute( 
-            array(
-            ':id_personatge' => $id,
-            ':nom' => $nom)
+                array(
+                ':nom' => $nom, 
+                ':id_personatge' => $id)
             );
         } catch (Exception $e){
             echo "Error: " . $e->getMessage();
@@ -89,6 +90,7 @@
         }
     }
 
+    //Comprovar id i nom.
     function selectComprovarIdINom($id, $nom){
         try {
             $connexio = connexio();
@@ -96,6 +98,22 @@
             $statement->execute(
                 array(
                 ':id_personatge' => $id,
+                ':nom' => $nom)
+            );
+            return $statement->fetch();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    //Comprovar si exsisteix un personatge amb nom i usuariID.
+    function selectComprovarUsuariId($nom, $usuariId){
+        try {
+            $connexio = connexio();
+            $statement = $connexio->prepare('SELECT * FROM personatges WHERE usuari_id = :usuari_id AND nom = :nom');
+            $statement->execute(
+                array(
+                ':usuari_id' => $usuariId,
                 ':nom' => $nom)
             );
             return $statement->fetch();
@@ -116,12 +134,26 @@
         }
     }
 
+
+    //CONSULTAR
+
     //Mostrar tots els articles.
     function consultar(){
         try {
             $connexio = connexio();
             $statement = $connexio->prepare('SELECT * FROM personatges');
             $statement->execute();
+            return $statement->fetchAll();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    function consultarPerUsuari($usuariId){
+        try {
+            $connexio = connexio();
+            $statement = $connexio->prepare('SELECT * FROM personatges WHERE usuari_id = :usuari_id');
+            $statement->execute(array(':usuari_id' => $usuariId));
             return $statement->fetchAll();
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();

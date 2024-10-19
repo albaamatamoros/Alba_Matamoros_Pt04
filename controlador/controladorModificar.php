@@ -1,4 +1,5 @@
 <?php
+    session_start();
     //Array d'errors.
     $errors = [];
     //Comprovar l'exsistencia d'un usuari.

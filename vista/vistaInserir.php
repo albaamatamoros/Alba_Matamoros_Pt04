@@ -15,23 +15,29 @@
         <nav>
             <!-- INICI y GESTIÓ D'ARTICLES -->
             <div class="left">
-                <button type="button" onclick="location.href='../index.php'">INICI</button>
-                <button type="button" onclick="location.href='../vista/vistaMenu.php'">GESTIÓ DE PERSONATGES</button>
+                <a href='../index.php'">INICI</a>
             </div>
 
             <!-- PERFIL -->
             <div class="perfil">
-                <button type="button">PERFIL</button>
-                <div class="dropdown-content">
-                    <button type="button" onclick="location.href='../vista/vistaLogin.php'">Iniciar sessió</button>
-                    <button type="button" onclick="location.href='../vista/vistaRegistrarse.php'">Registrar-se</button>
+                <?php if (!isset($_SESSION['loginId'])): ?>
+                    <a>PERFIL</a>
+                    <div class="dropdown-content">
+                        <a href="vista/vistaLogin.php">Iniciar sessió</a>
+                        <a href="vista/vistaRegistrarse.php">Registrar-se</a>
+                <?php else: ?>
+                    <a>USUARI</a>
+                    <div class="dropdown-content">
+                        <!-- <a href="./vistaPerfil.php">El meu perfil</a> -->
+                        <a href="./controlador/controladorTancarSessio.php">Tancar sessió</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </nav>
 
         <!-- INSERIR ARTICLE -->
         <div class="button-container">
-            <h1>INSERIR UN ARTICLE</h1>
+            <h1>INSERIR PERSONATGE</h1>
             
             <form action="../controlador/controladorInsertar.php" method="POST">
                 <label for="nom">Nom:</label>
@@ -66,7 +72,7 @@
                 <!-- INSERIR -->
                 <div class="button-group">
                     <input type="submit" name="action" value="Inserir" class="btn"/>
-                    <button onclick="location.href='vistaMenu.php'" type="button" class="btn">Tornar</button> 
+                    <button onclick="location.href='../vista/vistaMenu.php'" type="button" class="btn">Tornar</button> 
                 </div>
             </form>
         </div>        

@@ -1,4 +1,5 @@
 <?php
+    session_start();
     //Array d'errors.
     $errors = [];
     //Comprovar l'exsistencia d'un usuari.
@@ -13,6 +14,7 @@
             if ($accion == "Inserir"){
                 $nom = $_POST["nom"];
                 $text = $_POST["text"];
+                $usuariId = $_SESSION["loginId"];
 
                 //Control d'errors.
                 if (empty($nom)) $errors[] = "El camp Nom està buit.";
@@ -22,13 +24,13 @@
                 if (empty($errors)) {
                     $existe = selectComprovarNom($nom);
                     if ($existe == false){
-                        inserir($nom, $text); 
+                        inserir($nom, $text, $usuariId); 
                     } else { $errors[] = "Ja exsisteix un article amb aquest nom."; }
                     if (empty($errors)) { 
                         $correcte = "Article inserit correctament!";
+                        include "../vista/vistaInserir.php";
                         unset($_POST["nom"]);
                         unset($_POST["text"]);
-                        unset($_POST["id"]);
                     } else { include "../vista/vistaInserir.php"; }
                 } else { include "../vista/vistaInserir.php"; }
             } else { 

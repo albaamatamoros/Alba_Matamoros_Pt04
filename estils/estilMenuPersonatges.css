@@ -37,6 +37,8 @@ body {
 
 /* Estilo para los botones */
 .button-container .btn {
+    text-decoration: none;
+    color: inherit;
     display: block;
     width: 100%;
     padding: 12px;

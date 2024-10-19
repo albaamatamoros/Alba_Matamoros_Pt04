@@ -9,22 +9,30 @@
         <title>Gestió de Personatges</title>
     </head>
     <body>
+        <?php session_start(); ?>
         <nav>
-            <!-- Sección izquierda: INICI y GESTIÓ D'ARTICLES -->
+            <!-- INICI y GESTIÓ D'ARTICLES -->
             <div class="left">
                 <a href='../index.php'">INICI</a>
-                <a href='../vista/vistaMenu.php'">GESTIÓ DE PERSONATGES</a>
             </div>
 
-            <!-- Sección derecha: PERFIL (con menú desplegable) -->
+            <!-- PERFIL -->
             <div class="perfil">
-                <a>PERFIL</a>
-                <div class="dropdown-content">
-                    <a href='../vista/vistaLogin.php'">Iniciar sessió</a>
-                    <a href='../vista/vistaRegistrarse.php'">Registrar-se</a>
+                <?php if (!isset($_SESSION['loginId'])): ?>
+                    <a>PERFIL</a>
+                    <div class="dropdown-content">
+                        <a href="vista/vistaLogin.php">Iniciar sessió</a>
+                        <a href="vista/vistaRegistrarse.php">Registrar-se</a>
+                <?php else: ?>
+                    <a>USUARI</a>
+                    <div class="dropdown-content">
+                        <!-- <a href="./vistaPerfil.php">El meu perfil</a> -->
+                        <a href="./controlador/controladorTancarSessio.php">Tancar sessió</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </nav>
+
         <div class="button-container">
         <!-- Botons Inserir/modificar/esborrar i consultar -->
             <a href='vistaInserir.php'" class="btn return-btn">Inserir</a>
@@ -33,5 +41,6 @@
             <!-- Sin hacer -->
             <a href="" class="btn return-btn">Consultar</a> 
         </div>
+
     </body>
 </html>

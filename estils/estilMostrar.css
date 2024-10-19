@@ -1,0 +1,137 @@
+/* Estilos generales */
+section {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Título de la lista de personajes */
+.titulo-personatges {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 60px; /* Añadir espacio debajo de la barra de inicio */
+}
+
+/* Contenedor principal de los personajes */
+.personatges-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajuste para un diseño más responsivo */
+    gap: 15px;
+}
+
+/* Caja individual de cada personaje */
+.personatge-box {
+    background-color: #f4f4f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    position: relative; /* Para que los botones se alineen dentro de la caja */
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 160px; /* Fijar una altura mínima */
+}
+
+/* Hover para la caja de cada personaje */
+.personatge-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Nombre del personaje */
+.personatge-nom {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Descripción o cuerpo del personaje */
+.personatge-cos {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+/* Contenedor de los botones dentro del bloque */
+.personatge-botons {
+    position: absolute;
+    bottom: 10px; /* Posicionar los botones en la parte inferior del bloque */
+    left: 50%;
+    transform: translateX(-50%); /* Centrar los botones */
+    display: flex;
+    gap: 10px; /* Espaciado entre los botones */
+}
+
+/* Estilo general para los botones */
+.personatge-botons a {
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px; /* Hacer los botones cuadrados */
+    color: white;
+    width: 40px; /* Tamaño fijo para hacer los botones cuadrados */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    text-decoration: none; /* Evitar subrayado en los iconos */
+}
+
+/* Botón de eliminar */
+.eliminar-btn {
+    background-color: #e74c3c;
+}
+
+.eliminar-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Botón de modificar */
+.modificar-btn {
+    background-color: #3498db;
+}
+
+.modificar-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .personatge-box {
+        padding: 12px; /* Menor padding en pantallas pequeñas */
+    }
+
+    .titulo-personatges {
+        font-size: 2rem;
+        margin-top: 40px; /* Ajustar margen superior en móviles */
+    }
+
+    .personatge-nom {
+        font-size: 1.4rem;
+    }
+
+    .personatge-cos {
+        font-size: 0.85rem;
+    }
+
+    .personatge-botons {
+        bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .personatge-botons {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .personatge-botons a {
+        width: 35px; /* Tamaño más pequeño para botones en pantallas pequeñas */
+        height: 35px;
+    }
+}

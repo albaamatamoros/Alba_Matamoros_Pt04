@@ -14,7 +14,7 @@
                 $cognoms = ($_POST["cognoms"]);
                 $usuari = ($_POST["usuari"]);
                 $email = ($_POST["email"]);
-                $contrasenya = ($_POST["contrassenya"]);
+                $contrasenya = ($_POST["contrasenya"]);
                 $confirmar_contrasenya = ($_POST["confirmar_contrasenya"]);
 
                 if (empty($nom)) { $errors[] = "El camp 'nom' és obligatori"; } 
