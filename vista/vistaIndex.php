@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="estilPersonatgesMostrats.css">
     <?php require_once './model/modelPersonatges.php'; ?>
     <title>Inici</title>
+    <script>
+    // Contar el tiempo restante de la sesión en el navegador
+    var countdown = setTimeout(function() {
+        alert("La sesión ha finalizado.");
+        // Aquí puedes redirigir a la página de inicio de sesión o refrescar la página
+        window.location.href = "vista/vistaLogin.php"; // Ejemplo para redirigir al logout o a otra página
+    }, sessionTimeLeft * 1000); // Convertir segundos a milisegundos
+    </script>
 </head>
 <body>
 
