@@ -1,6 +1,5 @@
-/* BARRA DE INICIO */
 /* Estilo básico para eliminar márgenes y padding */
-body{
+body {
     background-color: #f4f4f4;
 }
 
@@ -26,17 +25,19 @@ nav {
     z-index: 1000;
 }
 
-/* Botones de la barra de navegación */
-nav button {
-    background-color: #333;
+/* Estilos para los enlaces en la barra de navegación */
+nav a {
+    text-decoration: none;
     color: white;
-    border: none;
+    background-color: #333;
     padding: 10px 15px;
-    cursor: pointer;
+    border-radius: 4px;
     font-size: 16px;
+    display: inline-block;
+    cursor: pointer;
 }
 
-nav button:hover {
+nav a:hover {
     background-color: #555;
 }
 
@@ -62,18 +63,20 @@ nav .perfil .dropdown-content {
     z-index: 1;
 }
 
-/* Mostrar el menú desplegable al pasar sobre el botón de PERFIL */
+/* Mostrar el menú desplegable al pasar sobre la sección de PERFIL */
 nav .perfil:hover .dropdown-content {
     display: block;
 }
 
-/* Estilos de los botones dentro del menú desplegable */
-nav .perfil .dropdown-content button {
-    width: 100%;
+/* Estilos para los enlaces dentro del menú desplegable */
+nav .perfil .dropdown-content a {
+    text-decoration: none;
+    color: white;
     padding: 10px;
-    text-align: left;
+    display: block;
+    background-color: #333;
 }
 
-nav .perfil .dropdown-content button:hover {
+nav .perfil .dropdown-content a:hover {
     background-color: #555;
 }

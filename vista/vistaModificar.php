@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estils/estilPersonatges.css">
     <link rel="stylesheet" href="../estils/estilBarra.css">
+    <link rel="stylesheet" href="../estils/estilErrors.css">
     <title>Modificar Personatge</title>
 </head>
     <body>
@@ -40,13 +41,13 @@
                 <label for="text">Descripció:</label>
                 <input type="text" id="text" name="text"></input>
 
-                <!-- MOSTRAR ERRORES -->
+                <!-- CONTROL D'ERRORS -->
                 <?php if (!empty($errors)): ?>
-                    <div style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 15px; margin: 10px 0; border-radius: 5px; font-family: Arial, sans-serif; display: flex; align-items: center; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
-                        <span style="margin-right: 10px; font-size: 20px;">⚠️</span> <!-- Icono de advertencia -->
+                    <div class="error-container">
+                        <span class="error-icon">⚠️</span> <!-- Icono de advertencia -->
                         <div>
                             <?php foreach ($errors as $error): ?>
-                                <p style="margin: 0; padding: 0; font-size: 14px;"><?php echo $error; ?></p>
+                                <p class="error-message"><?php echo $error; ?></p>
                             <?php endforeach; ?>
                         </div>
                     </div>
