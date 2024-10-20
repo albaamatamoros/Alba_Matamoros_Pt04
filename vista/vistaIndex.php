@@ -13,7 +13,7 @@
             let confirmacion = confirm("Segur que vols esborrar aquest personatge?");
             
             if (confirmacion) {
-                window.location.href = '../controlador/controladorEsborrarIndex.php?id_personatge=' + idPersonatge;
+                window.location.href = './controlador/controladorEsborrarIndex.php?id_personatge=' + idPersonatge;
             }
         }
     </script>
@@ -80,15 +80,14 @@
                         if (!empty($personatges)) {
                             foreach ($personatges as $personatge) {
                                 echo '<div class="personatge-box">';
-                                echo '<h2 class="personatge-nom">' . htmlspecialchars($personatge['nom']) . '</h2>';
-                                echo '<p class="personatge-cos">' . htmlspecialchars($personatge['cos']) . '</p>';
+                                    echo '<h2 class="personatge-nom">' . htmlspecialchars($personatge['nom']) . '</h2>';
+                                    echo '<p class="personatge-cos">' . htmlspecialchars($personatge['cos']) . '</p>';
 
                                 // ESBORRAR I MODIFICAR
-                                echo '<div class="personatge-botons">';
-                                echo '<a class="eliminar-btn" href="#" onclick="confirmarEliminacion(' . $personatge['id_personatge'] . ')">🗑️</a>';
-                                echo '<a class="modificar-btn" href="vistaModificar.php(' . $personatge['id_personatge'] . ')">✏️</a>';
-                                echo '</div>';      
-
+                                    echo '<div class="personatge-botons">';
+                                        echo '<a class="eliminar-btn" href="#" onclick="confirmarEliminacion(' . $personatge['id_personatge'] . ')">🗑️</a>';
+                                        echo '<a class="modificar-btn" href="vista/vistaModificarDades.php?id_personatge=' . $personatge['id_personatge'] . '">✏️</a>';
+                                    echo '</div>';      
                                 echo '</div>';              
                             }
                         } else {
