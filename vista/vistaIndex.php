@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="estils/estilBarra.css">
     <link rel="stylesheet" href="estils/estilMostrar.css">
     
-    
     <title>Inici</title>
     <script>
         function confirmarEsborrar(idPersonatge) {
@@ -44,7 +43,7 @@
                     ?> 
                 </a>
                 <div class="dropdown-content">
-                    <!-- <a href="./vistaPerfil.php">El meu perfil</a> -->
+                    <a href="vista/vistaCanviContra.php">Nova contrasenya</a>
                     <a href="./controlador/controladorTancarSessio.php">Tancar sessió</a>
                 <?php endif; ?>
             </div>

@@ -53,6 +53,20 @@
         }
     }
 
+    function comprovarContrasenyaId($usuariId){
+        try {
+            $connexio = connexio();
+            $statement = $connexio->prepare('SELECT * FROM usuaris WHERE id_usuari = :id_usuari');
+            $statement->execute(
+                array(
+                ':id_usuari' => $usuariId)
+            );
+            return $statement->fetch();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
     //********************************************************
     //INSERT
 
@@ -75,6 +89,25 @@
         }
     }
 
+    //********************************************************
+    //MODIFICAR
+
+    function modificarContrasenya($contrasenyaCifrada, $usuariId){
+        try {
+            //Fem un update que modifica totes les dades a les noves introduides.
+            $connexio = connexio();
+            $statement = $connexio->prepare('UPDATE usuaris SET contrasenya = :contrasenya WHERE id_usuari = :id_usuari');
+            $statement->execute( 
+            array(
+            ':contrasenya' => $contrasenyaCifrada,
+            ':id_usuari' => $usuariId)
+            );
+        }catch (Exception $e){
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    //********************************************************
     //INICIAR SESSIÓN
     function iniciSessio($usuari){
         try {

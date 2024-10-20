@@ -4,11 +4,13 @@
     }
     require_once '../model/modelPaginacio.php';
 
-    //setear la cookie, -> 0 = quan expira la cookie (mai expira).
-    setcookie("paginaCookie", $paginaActual, 0);
+    $paginaActual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 
     define("PAGINA", isset($_COOKIE["paginaCookie"]) ? $_COOKIE["paginaCookie"] : 1);
     define("PERSONATGES_PER_PAGINA", 5);
+
+    //setear la cookie, -> 0 = quan expira la cookie (mai expira).
+    setcookie("paginaCookie", $paginaActual, 0);
     
     if (isset($_SESSION['loginId'])){
         define("USUARI_ID", $_SESSION['loginId']);

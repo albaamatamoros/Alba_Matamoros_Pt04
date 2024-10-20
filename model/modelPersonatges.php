@@ -29,7 +29,7 @@
     //UPDATE
 
     //Modificar article
-    function modificar(string $nom, string $text, int $id){
+    function modificar($nom, $text, $id){
         try {
             //Fem un update que modifica totes les dades a les noves introduides.
             $connexio = connexio();

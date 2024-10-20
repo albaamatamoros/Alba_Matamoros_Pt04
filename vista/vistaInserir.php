@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="../estils/estilErrors.css">
     <title>Inserir Personatge</title>
 </head>
-<script>
-</script>
     <?php
         // Verificar si la sesión no está activa.
         if (session_status() === PHP_SESSION_NONE) {
@@ -33,6 +31,7 @@
                     ?> 
                 </a>
                 <div class="dropdown-content">
+                    <a href="../controlador/controladorTancarSessio.php">canviar contrasenya</a>
                     <a href="../controlador/controladorTancarSessio.php">Tancar sessió</a>
                 </div>
             </div>

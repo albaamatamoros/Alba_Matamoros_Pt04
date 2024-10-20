@@ -25,6 +25,7 @@
                     ?> 
                 </a>
                 <div class="dropdown-content">
+                    <a href="../vista/vistaCanviContra.php">Nova contrasenya</a>
                     <a href="../controlador/controladorTancarSessio.php">Tancar sessió</a>
                 </div>
             </div>
