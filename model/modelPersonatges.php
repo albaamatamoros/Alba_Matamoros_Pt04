@@ -95,6 +95,18 @@
         }
     }
 
+    function obtenerIdDelPersonatgePerNom($nom){
+        try {
+            $connexio = connexio();
+            $statement = $connexio->prepare('SELECT id_personatge FROM personatges WHERE nom = :nom');
+            $statement->execute(array(':nom' => $nom));
+            //Retornem dades o FALSE per saber si exsisteix o no.
+            return $statement->fetchColumn(); 
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
     //Comprovacio per id.
     function selectComprovarId($id){
         try {

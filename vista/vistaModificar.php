@@ -20,6 +20,7 @@
             <!-- INICI y GESTIÓ D'ARTICLES -->
             <div class="left">
                 <a href='../index.php'">INICI</a>
+                <a href="../vista/vistaMenu.php">GESTIÓ DE PERSONATGES</a>
             </div>
 
             <!-- PERFIL -->
@@ -40,14 +41,9 @@
             <h1>MODIFICAR PERSONATGE</h1>
 
             <form action="../controlador/controladorModificar.php" method="POST">
-                <label for="id">Id Personatge:</label>
-                <input type="text" id="id" name="id"/>
 
                 <label for="nom">Nom:</label>
                 <input type="text" id="nom" name="nom"/>
-                    
-                <label for="text">Descripció:</label>
-                <input type="text" id="text" name="text"></input>
 
                 <!-- CONTROL D'ERRORS -->
                 <?php if (!empty($errors)): ?>

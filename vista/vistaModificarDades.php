@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../estils/estilPersonatges.css">
     <link rel="stylesheet" href="../estils/estilBarra.css">
     <link rel="stylesheet" href="../estils/estilErrors.css">
-    <title>Esborrar Article</title>
+    <title>Modificar Personatge</title>
 </head>
     <?php
         // Verificar si la sesión no está activa.
@@ -36,14 +36,17 @@
             </div>
         </nav>
 
-        <!-- ESBORRAR PERSONATGE -->
+        <!-- MODIFICAR PERSONATGE -->
         <div class="button-container">
-            <h1>ESBORRAR PERSONATGE</h1>
+            <h1>MODIFICAR PERSONATGE</h1>
 
-            <form action="../controlador/controladorEsborrar.php" method="POST">
+            <form action="../controlador/controladorModificarDades.php" method="POST">
 
                 <label for="nom">Nom:</label>
                 <input type="text" id="nom" name="nom"/>
+                    
+                <label for="text">Descripció:</label>
+                <input type="text" id="text" name="text"></input>
 
                 <!-- MISSATGE D'ERROR Y DE CONFIRMACIÓ -->
                 <?php if (!empty($errors)): ?>
@@ -64,9 +67,19 @@
                     </div>
                 <?php endif; ?>
 
-                <!-- ESBORRAR -->
+                <?php 
+                    if (isset($_GET["id_personatge"])) {
+                        $personatgeId = $_GET["id_personatge"]; 
+                    } else {
+                        $errors[] = "No s'ha trobat l'ID del personatge.";
+                    }
+                ?>
+                
+                <input type="hidden" name="id" value="<?php echo isset($personatgeId) ? $personatgeId : ''; ?>"/>
+
+                <!-- MODIFICAR -->
                 <div class="button-group">
-                <input type="submit" name="action" value="Esborrar" class="btn"/>
+                    <input type="submit" name="action" value="Modificar" class="btn"/> <!-- Botón de modificación -->
                     <button onclick="location.href='../vista/vistaMenu.php'" type="button" class="btn">Tornar</button> 
                 </div>
             </form>

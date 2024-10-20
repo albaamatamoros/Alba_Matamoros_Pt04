@@ -16,30 +16,30 @@
         try {
             if ($accion == "Modificar"){
                 $nom = $_POST["nom"];
-                $text = $_POST["text"];
-                $id = $_POST["id"];
+                $usuariId = $_SESSION["loginId"];
 
                 //Control d'errors.
-                if (empty($id)) $errors[] = "El camp Id no pot estàr buit.";
-                if (empty($nom) && empty($text)) $errors[] = "Si vols modificar alguna cosa, has de modificar com a mínim Nom o Descripció.";
+                if (empty($nom)) $errors[] = "Has de omplenar el nom per poder buscar el personatge que vols modificar.";
 
                 if (empty($errors)) {
                     //Guardem el resultat del select, si no trova res retornara FALSE.
-                    $existe = selectComprovarId($id);
-                    if ($existe === false){
-                        $errors[] = "No existeix cap personatge amb aquest Id.";
+                    $existe = selectComprovarNom($nom);
+                    if ($existe == false){
+                        $errors[] = "No existeix cap personatge amb aquest Nom.";
                     } else {
-                        $PersonatgeBD = selectPersonatgePerId($id);
-
-                        if (empty($nom)) $nom = $PersonatgeBD["nom"];
-                        if (empty($text)) $text = $PersonatgeBD["cos"];
+                        $creat = selectComprovarUsuariId($nom, $usuariId);
+                        if ($creat == false){
+                            $errors[] = "No pots modificar un personatge que no es teu.";
+                        } else { 
+                            $personatgeId = obtenerIdDelPersonatgePerNom($nom);
+                            if ($personatgeId) {
+                                header("Location: ../vista/vistaModificarDades.php?id_personatge=$personatgeId");
+                            } else { $errors[] = "No es pot obtenir l'Id del personatge."; }
+                        }
+                        if (!empty($errors)) { include "../vista/vistaModificar.php"; }
                     }
-                    //Comprovem si s'ha generat algun error en el proces, sino s'envia un missatge dient que esta tot correcte. 
-                    if (empty($errors)){
-                        modificar($nom, $text, $id);
-                        $correcte = "Personatge modificat correctament!";
-                    } else { include "../vista/vistaModificar.php"; }
-                } else { include "../vista/vistaModificar.php"; }  
+                    if (!empty($errors)){ include "../vista/vistaModificar.php"; }
+                } else { include "../vista/vistaModificar.php"; }
             } else { 
                 $errors[] = "No es pot completar aquesta acció.";
                 include "../vista/vistaModificar.php"; }

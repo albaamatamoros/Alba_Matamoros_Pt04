@@ -31,11 +31,10 @@
 
         <div class="button-container">
         <!-- Botons Inserir/modificar/esborrar i consultar -->
-            <a href='vistaInserir.php'" class="btn return-btn">Inserir</a>
-            <a href='vistaEsborrar.php'" class="btn return-btn">Esborrar</a> 
-            <a href='vistaModificar.php'" class="btn return-btn">Modificar</a>
-            <!-- Sin hacer -->
-            <a href="" class="btn return-btn">Consultar</a> 
+            <a href="vistaInserir.php" class="btn return-btn">Inserir</a>
+            <a href="vistaEsborrar.php" class="btn return-btn">Esborrar</a> 
+            <a href="vistaModificar.php" class="btn return-btn">Modificar</a>
+            <a href="vistaConsultar.php" class="btn return-btn">Consultar</a> 
         </div>
 
     </body>
