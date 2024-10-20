@@ -165,7 +165,6 @@
 
 
     //CONSULTAR
-
     //Mostrar tots els articles.
     function consultar(){
         try {

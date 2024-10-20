@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../estils/estilBarra.css">
     <link rel="stylesheet" href="../estils/estilMostrar.css">
     <?php require_once '../model/modelPersonatges.php'; ?>
+    
     <title>Consultar personatges</title>
 </head>
 <body>
@@ -37,7 +38,7 @@
 
     <section>
         <!-- PERSONATGES GLOBALS -->
-        <h1 class="titulo-personatges">Llista de Personatges Global</h1>
+        <div class="titulo"> <h1 class="titulo-personatges">Llista de Personatges Global</h1> </div>
         <div class="personatges-container">
             <?php
             $personatges = consultar();

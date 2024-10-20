@@ -2,6 +2,7 @@
 /* -- CONTROL D'ERRORS --*/
 /* ---------------------- */
 
+/* ERORRES */
 .error-container {
     background-color: #f8d7da;
     color: #721c24;
@@ -12,7 +13,7 @@
     font-family: Arial, sans-serif;
     display: flex;
     align-items: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 .success-container {
@@ -25,7 +26,7 @@
     font-family: Arial, sans-serif;
     display: flex;
     align-items: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 .error-icon, .success-icon {

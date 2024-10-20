@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estils/estilIniciarRegistrar.css">
     <link rel="stylesheet" href="../estils/estilBarra.css">
-    <link rel="stylesheet" href="../estils/estilErrors.css">
+    <link rel="stylesheet" href="../estils/estilError.css">
     <title>Iniciar sessió</title>
 </head>
 <body>
@@ -39,12 +39,19 @@
 
         <!-- CONTROL D'ERRORS -->
         <?php if (!empty($errors)): ?>
-            <div class="error-container">
-                <span class="error-icon">⚠️</span> <!-- Icono de advertencia -->
+            <div class="alert error-container">
+                <span class="alert-icon error-icon">⚠️</span> <!-- Icono de advertencia -->
                 <div>
                     <?php foreach ($errors as $error): ?>
-                        <p class="error-message"><?php echo $error; ?></p>
+                        <p class="alert-text error-message"><?php echo $error; ?></p>
                     <?php endforeach; ?>
+                </div>
+            </div>
+        <?php elseif (!empty($correcte)): ?>
+            <div class="alert success-container">
+                <span class="alert-icon success-icon">✔️</span> <!-- Icono de éxito -->
+                <div>
+                    <p class="alert-text success-message"><?php echo $correcte; ?></p>
                 </div>
             </div>
         <?php endif; ?>

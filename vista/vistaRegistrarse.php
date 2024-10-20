@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estils/estilIniciarRegistrar.css">
     <link rel="stylesheet" href="../estils/estilBarra.css">
-    <link rel="stylesheet" href="../estils/estilErrors.css">
+    <link rel="stylesheet" href="../estils/estilError.css">
     <title>Registrar-se</title>
 </head>
 <body>
@@ -49,6 +49,8 @@
             <label for="confirmar_contrasenya">Confirmar Contrasenya:</label>
             <input type="password" id="confirmar_contrasenya" name="confirmar_contrasenya">
 
+            <input type="submit" name="action" value="Registrar-se">
+
             <!-- MISSATGE D'ERROR Y DE CONFIRMACIÓ -->
             <?php if (!empty($errors)): ?>
                 <div class="alert error-container">
@@ -68,7 +70,6 @@
                 </div>
             <?php endif; ?>
 
-            <input type="submit" name="action" value="Registrar-se">
         </form>
 
         <div class="form-footer">

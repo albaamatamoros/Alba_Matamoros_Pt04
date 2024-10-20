@@ -12,8 +12,9 @@
     font-family: Arial, sans-serif;
 }
 
-body {    
-    background-color: #f4f4f4;
+body {
+    background-image: url("../wallpaper.jpg");
+    /* background-color: #f4f4f4; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +27,7 @@ body {
 .login-container {
     background-color: #fff;
     padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     border-radius: 8px;
     width: 100%;
     max-width: 400px;

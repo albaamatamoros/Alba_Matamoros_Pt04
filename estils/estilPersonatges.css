@@ -1,5 +1,9 @@
 /* Alba Matamoros Morales */
 
+/* ------------------------------------ */
+/* -- INSERTRA, ESBORRAR, CONSULTAR --*/
+/* ------------------------------------*/
+
 /* Estilo básico para eliminar márgenes y padding */
 * {
     margin: 0;
@@ -10,7 +14,8 @@
 
 /* Estilo general del body */
 body {
-    background-color: #f4f4f4;
+    background-image: url("../wallpaper.jpg");
+    /* background-color: #f4f4f4; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +28,7 @@ body {
 .button-container {
     background-color: #fff;
     padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     border-radius: 8px;
     width: 100%;
     max-width: 400px;
@@ -89,7 +94,7 @@ body {
     border-radius: 5px;
     display: flex;
     align-items: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
     font-family: Arial, sans-serif;
 }
 

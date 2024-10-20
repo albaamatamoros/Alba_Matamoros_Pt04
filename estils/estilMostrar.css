@@ -1,5 +1,13 @@
 /* Alba Matamoros Morales */
 
+/* ------------------------------------ */
+/* -- PAGINACÓ I MOSTRAR PERSONATGES --*/
+/* ------------------------------------*/
+
+body {
+    background-image: url("../wallpaper.jpg");
+}
+
 /* Estilos generales */
 section {
     margin: 0 auto;
@@ -8,8 +16,19 @@ section {
     font-family: Arial, sans-serif;
 }
 
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Título de la lista de personajes */
 .titulo-personatges {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    width: fit-content;
+    padding: 15px;
     font-size: 2.5rem;
     text-align: center;
     color: #333;
@@ -28,6 +47,7 @@ section {
 
 /* Caja individual de cada personaje */
 .personatge-box {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     background-color: #f4f4f9;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -35,13 +55,13 @@ section {
     text-align: center;
     position: relative; /* Para que los botones se alineen dentro de la caja */
     transition: transform 0.3s, box-shadow 0.3s;
-    min-height: 160px; /* Fijar una altura mínima */
+    min-height: 200px; /* Fijar una altura mínima */
 }
 
 /* Hover para la caja de cada personaje */
 .personatge-box:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 /* Nombre del personaje */
@@ -137,3 +157,46 @@ section {
         height: 35px;
     }
 }
+
+.paginacio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo general para los enlaces de paginación */
+a.activat {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    text-decoration: none;
+    color: #fff;
+    background-color: #424242; /* Gris oscuro */
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+a.activat:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    background-color: #616161; /* Color gris más claro al pasar el cursor */
+}
+
+/* Estilo para los enlaces desactivados */
+a.desactivat, a.desactivado {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    text-decoration: none;
+    color: #bdbdbd; /* Color gris claro para texto */
+    background-color: #757575; /* Fondo gris oscuro más suave */
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    pointer-events: none; /* Deshabilitar clic en enlaces desactivados */
+}
+
+/* Estilo adicional para el botón de la página actual */
+a.desactivado {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    font-weight: bold; /* Negrita para destacar la página actual */
+    color: #eeeeee; /* Gris claro para la página actual */
+}
+
