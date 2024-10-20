@@ -1,4 +1,6 @@
 <?php 
+    //Alba Matamoros Morales
+
     require_once "connexio.php";
     //---------------
     //- PERSONATGES -
@@ -47,15 +49,15 @@
     //DELETE
 
     //Esborrem personatge
-    function esborrar($nom, $id){
+    function esborrar($nom){
         try {
             //Sentència per esborrar.
             $connexio = connexio();
             $statement = $connexio->prepare('DELETE FROM personatges WHERE nom = :nom OR id_personatge = :id_personatge');
             $statement->execute( 
                 array(
-                ':nom' => $nom, 
-                ':id_personatge' => $id)
+                ':nom' => $nom
+                )
             );
         } catch (Exception $e){
             echo "Error: " . $e->getMessage();

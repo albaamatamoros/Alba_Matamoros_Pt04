@@ -1,4 +1,5 @@
 <?php
+    //Alba Matamoros Morales
     session_start();
     //Array d'errors.
     $errors = [];
@@ -25,9 +26,9 @@
                     $existe = selectComprovarNom($nom);
                     if ($existe == false){
                         inserir($nom, $text, $usuariId); 
-                    } else { $errors[] = "Ja exsisteix un article amb aquest nom."; }
+                    } else { $errors[] = "Ja exsisteix un personatge amb aquest nom."; }
                     if (empty($errors)) { 
-                        $correcte = "Article inserit correctament!";
+                        $correcte = "Personatge inserit correctament!";
                         include "../vista/vistaInserir.php";
                         unset($_POST["nom"]);
                         unset($_POST["text"]);
@@ -35,7 +36,7 @@
                 } else { include "../vista/vistaInserir.php"; }
             } else { 
                 $errors[] = "No es pot completar aquesta acció.";
-                include "../vista/vistaModificar.php"; }
+                include "../vista/vistaInserir.php"; }
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
         }

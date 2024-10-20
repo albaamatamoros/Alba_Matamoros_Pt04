@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Alba Matamoros Morales -->
+    <!-- Alba Matamoros Morales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estils/estilPersonatges.css">
@@ -18,17 +18,9 @@
 
             <!-- PERFIL -->
             <div class="perfil">
-                <?php if (!isset($_SESSION['loginId'])): ?>
-                    <a>PERFIL</a>
-                    <div class="dropdown-content">
-                        <a href="vista/vistaLogin.php">Iniciar sessió</a>
-                        <a href="vista/vistaRegistrarse.php">Registrar-se</a>
-                <?php else: ?>
-                    <a>USUARI</a>
-                    <div class="dropdown-content">
-                        <!-- <a href="./vistaPerfil.php">El meu perfil</a> -->
-                        <a href="./controlador/controladorTancarSessio.php">Tancar sessió</a>
-                    <?php endif; ?>
+                <a>USUARI</a>
+                <div class="dropdown-content">
+                    <a href="../controlador/controladorTancarSessio.php">Tancar sessió</a>
                 </div>
             </div>
         </nav>
@@ -42,7 +34,7 @@
                 <label for="nom">Nom:</label>
                 <input type="text" id="nom" name="nom"/>
 
-                <!-- Missatges d'error i de confirmació -->
+                <!-- MISSATGE D'ERROR Y DE CONFIRMACIÓ -->
                 <?php if (!empty($errors)): ?>
                     <div class="alert error">
                         <span class="alert-icon">⚠️</span> <!-- Icono de advertencia -->

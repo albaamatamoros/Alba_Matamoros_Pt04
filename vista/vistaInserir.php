@@ -20,17 +20,9 @@
 
             <!-- PERFIL -->
             <div class="perfil">
-                <?php if (!isset($_SESSION['loginId'])): ?>
-                    <a>PERFIL</a>
-                    <div class="dropdown-content">
-                        <a href="vista/vistaLogin.php">Iniciar sessió</a>
-                        <a href="vista/vistaRegistrarse.php">Registrar-se</a>
-                <?php else: ?>
-                    <a>USUARI</a>
-                    <div class="dropdown-content">
-                        <!-- <a href="./vistaPerfil.php">El meu perfil</a> -->
-                        <a href="./controlador/controladorTancarSessio.php">Tancar sessió</a>
-                    <?php endif; ?>
+                <a>USUARI</a>
+                <div class="dropdown-content">
+                    <a href="../controlador/controladorTancarSessio.php">Tancar sessió</a>
                 </div>
             </div>
         </nav>
@@ -46,7 +38,7 @@
                 <label for="text">Descripció:</label>
                 <input type="text" id="text" name="text" value="<?php echo isset ($_POST['text']) ? htmlspecialchars($_POST['text']) : '' ; ?>" ></input>
 
-                <!-- MENSAJE DE ERROR Y DE CORRECTO -->
+                <!-- MISSATGE D'ERROR Y DE CONFIRMACIÓ -->
                 <?php if (!empty($errors)): ?>
                     <div class="alert error">
                         <span class="alert-icon">⚠️</span> <!-- Icono de advertencia -->

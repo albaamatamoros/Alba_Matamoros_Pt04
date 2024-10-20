@@ -1,4 +1,5 @@
 <?php
+    //Alba Matamoros Morales
     session_start();
     //Array d'errors.
     $errors = [];
@@ -37,7 +38,7 @@
                 } else { include "../vista/vistaEsborrar.php"; }
             } else { 
                 $errors[] = "No es pot completar aquesta acció.";
-                include "../vista/vistaModificar.php"; }
+                include "../vista/vistaEsborrar.php"; }
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
         }

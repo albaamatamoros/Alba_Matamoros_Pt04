@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Alba Matamoros Morales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estils/estilIniciarRegistrar.css">
@@ -11,12 +12,12 @@
 <body>
     <!-- HEADER -->
     <nav>
-        <!-- Sección izquierda: INICI y GESTIÓ D'ARTICLES -->
+        <!-- INICI y GESTIÓ D'ARTICLES -->
         <div class="left">
             <a href='../index.php'">INICI</a>
         </div>
 
-        <!-- Sección derecha: PERFIL (con menú desplegable) -->
+        <!-- PERFIL -->
         <div class="perfil">
             <a>PERFIL</a>
             <div class="dropdown-content">
@@ -25,6 +26,7 @@
             </div>
         </div>
     </nav>
+    
     <!-- BODY -->
     <div class="login-container">
         <h2>Registrar-se</h2>
@@ -47,17 +49,28 @@
             <label for="confirmar_contrasenya">Confirmar Contrasenya:</label>
             <input type="password" id="confirmar_contrasenya" name="confirmar_contrasenya">
 
-            <!-- CONTROL D'ERRORS -->
+            <!-- MISSATGE D'ERROR Y DE CONFIRMACIÓ -->
             <?php if (!empty($errors)): ?>
-                <div class="error-container">
-                    <span class="error-icon">⚠️</span> <!-- Icono de advertencia -->
+                <div class="alert error">
+                    <span class="alert-icon">⚠️</span> <!-- Icono de advertencia -->
                     <div>
                         <?php foreach ($errors as $error): ?>
-                            <p class="error-message"><?php echo $error; ?></p>
+                            <p class="alert-text"><?php echo $error; ?></p>
                         <?php endforeach; ?>
                     </div>
                 </div>
+            <?php elseif (!empty($correcte)): ?>
+                <div class="alert success">
+                    <span class="alert-icon">✔️</span> <!-- Icono de éxito -->
+                    <div>
+                        <p class="alert-text"><?php echo $correcte; ?></p>
+                    </div>
+                </div>
             <?php endif; ?>
+            <?php
+                $errors = [];
+                $correcte = "";
+            ?>
 
             <input type="submit" name="action" value="Registrar-se">
         </form>

@@ -1,4 +1,5 @@
 <?php
+    //Alba Matamoros Morales
     session_start();
     //Array d'errors.
     $errors = [];

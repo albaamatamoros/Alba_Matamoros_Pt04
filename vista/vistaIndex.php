@@ -40,7 +40,7 @@
     </nav>
     <section>
         <?php if (!isset($_SESSION['loginId'])): ?>
-            <!-- PERSONATGES TOTALS -->
+            <!-- PERSONATGES GLOBALS -->
             <h1 class="titulo-personatges">Llista de Personatges Global</h1>
             <div class="personatges-container">
                 <?php
@@ -59,7 +59,7 @@
                 ?>
             </div>
         <?php else: ?>
-            <!-- PERSONATGES USUARIS -->
+            <!-- PERSONATGES USUARI -->
             <h1 class="titulo-personatges">Llista de Personatges</h1>
                 <div class="personatges-container">
                     <?php

@@ -1,4 +1,6 @@
 <?php
+//Alba Matamoros Morales
+
 //CONNEXIO
     function connexio(){
     //Dades connexio a BD.

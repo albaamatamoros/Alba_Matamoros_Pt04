@@ -1,4 +1,6 @@
 <?php
+    //Alba Matamoros Morales
+
     require_once "connexio.php";
     //------------
     //- USUARIOS -
@@ -29,6 +31,20 @@
             $statement->execute(
                 array(
                 ':correu' => $email,
+                ':usuari' => $usuari)
+            );
+            return $statement->fetch();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    function comprovarContrasenya($usuari){
+        try {
+            $connexio = connexio();
+            $statement = $connexio->prepare('SELECT * FROM usuaris WHERE usuari = :usuari');
+            $statement->execute(
+                array(
                 ':usuari' => $usuari)
             );
             return $statement->fetch();
