@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estils/estilBarra.css">
     <link rel="stylesheet" href="../estils/estilMostrar.css">
-    <?php require_once '../model/modelPersonatges.php'; ?>
-    
+    <?php require_once '../controlador/controladorPaginacioConsultarMenu.php'; ?>
     <title>Consultar personatges</title>
 </head>
 <body>
@@ -39,21 +38,16 @@
     <section>
         <!-- PERSONATGES GLOBALS -->
         <div class="titulo"> <h1 class="titulo-personatges">Llista de Personatges Global</h1> </div>
-        <div class="personatges-container">
-            <?php
-            $personatges = consultar();
+            <div class="personatges-container">
+                <?php echo paginacioGlobalConsultar(isset($_GET["pagina"]) ? $_GET["pagina"] : PAGINA); ?>
+            </div>
 
-            if (!empty($personatges)): ?>
-                <?php foreach ($personatges as $personatge): ?>
-                    <div class="personatge-box">
-                        <h2 class="personatge-nom"><?= htmlspecialchars($personatge['nom']) ?></h2>
-                        <p class="personatge-cos"><?= htmlspecialchars($personatge['cos']) ?></p>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <p>No hi ha personatges disponibles.</p>
-            <?php endif; ?>
-        </div>
+            <!-- PAGINACIÓ GLOBAL -->
+            <section class="paginacio">
+            <div class="pagination">
+                <?php echo retornarLinksConsultar(isset($_GET["pagina"]) ? $_GET["pagina"] : PAGINA); ?>
+            </div>
+            </section>
     </section>
 </body>
 </html>

@@ -49,8 +49,6 @@
             <label for="confirmar_contrasenya">Confirmar Contrasenya:</label>
             <input type="password" id="confirmar_contrasenya" name="confirmar_contrasenya">
 
-            <input type="submit" name="action" value="Registrar-se">
-
             <!-- MISSATGE D'ERROR Y DE CONFIRMACIÓ -->
             <?php if (!empty($errors)): ?>
                 <div class="alert error-container">
@@ -70,6 +68,7 @@
                 </div>
             <?php endif; ?>
 
+            <input type="submit" name="action" value="Registrar-se">
         </form>
 
         <div class="form-footer">

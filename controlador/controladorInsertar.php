@@ -29,9 +29,9 @@
                     } else { $errors[] = "Ja exsisteix un personatge amb aquest nom."; }
                     if (empty($errors)) { 
                         $correcte = "Personatge inserit correctament!";
-                        include "../vista/vistaInserir.php";
                         unset($_POST["nom"]);
                         unset($_POST["text"]);
+                        include "../vista/vistaInserir.php";
                     } else { include "../vista/vistaInserir.php"; }
                 } else { include "../vista/vistaInserir.php"; }
             } else { 

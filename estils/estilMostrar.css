@@ -6,6 +6,8 @@
 
 body {
     background-image: url("../wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Estilos generales */

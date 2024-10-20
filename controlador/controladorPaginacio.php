@@ -1,13 +1,19 @@
 <?php
-    session_start();
-    require_once "./model/modelPaginacio.php";
-    define("PAGINA", 1);
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    require_once './model/modelPaginacio.php';
+
+    //setear la cookie, -> 0 = quan expira la cookie (mai expira).
+    setcookie("paginaCookie", $paginaActual, 0);
+
+    define("PAGINA", isset($_COOKIE["paginaCookie"]) ? $_COOKIE["paginaCookie"] : 1);
     define("PERSONATGES_PER_PAGINA", 5);
+    
     if (isset($_SESSION['loginId'])){
         define("USUARI_ID", $_SESSION['loginId']);
     }
     
-
     //CREAR ELS LINKS DE LA PAGINACIÓ PER USUARI.
     function retornarLinksPerUsuari($paginaActual = PAGINA){
 
@@ -15,7 +21,8 @@
         
         $totalPersonatges = countPersonatgesPerUsuari(USUARI_ID);
         $totalPagines = ceil($totalPersonatges / PERSONATGES_PER_PAGINA);
-        
+        //setear la cookie, -> 0 = quan expira la cookie (mai expira).
+
         // Evitar que la página actual exceda los límites
         if ($paginaActual < 1) {
             $paginaActual = 1;
@@ -55,7 +62,7 @@
                         <h2 class="personatge-nom">%s</h2>
                         <p class="personatge-cos">%s</p>
                         <div class="personatge-botons">
-                            <a class="eliminar-btn" href="#" onclick="confirmarEsborrar("%s")">🗑️</a>
+                            <a class="eliminar-btn" href="#" onclick="confirmarEsborrar(%s)">🗑️</a>
                             <a class="modificar-btn" href="vista/vistaModificarDades.php?id_personatge=%s">✏️</a>
                         </div>
                     </div>
@@ -75,7 +82,7 @@
         
         $totalPersonatges = countPersonatges();
         $totalPagines = ceil($totalPersonatges / PERSONATGES_PER_PAGINA);
-        
+
         // Evitar que la página actual exceda los límites
         if ($paginaActual < 1) {
             $paginaActual = 1;
