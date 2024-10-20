@@ -43,6 +43,10 @@
                     if ($existe == false){
                         insertarNouUsuari($nom, $cognoms, $usuari, $email, $contrasenyaCifrada);
                         $correcte = "Usuari Registrat correctament!";
+                        unset($_POST["nom"]);
+                        unset($_POST["cognoms"]);
+                        unset($_POST["usuari"]);
+                        unset($_POST["email"]);
                         include "../vista/vistaRegistrarse.php"; 
                     } else { $errors[] = "Aquest usuari o email ja exsisteix"; }
                     if (!empty($errors)){ 

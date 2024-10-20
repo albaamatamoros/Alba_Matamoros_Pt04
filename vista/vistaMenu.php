@@ -18,7 +18,11 @@
 
             <!-- PERFIL -->
             <div class="perfil">
-                <a>USUARI</a>
+                <a> <?php 
+                        $nomUsuari = $_SESSION["loginUsuari"]; 
+                        echo $nomUsuari;
+                    ?> 
+                </a>
                 <div class="dropdown-content">
                     <a href="../controlador/controladorTancarSessio.php">Tancar sessió</a>
                 </div>

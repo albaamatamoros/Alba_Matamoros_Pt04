@@ -32,16 +32,16 @@
         <h2>Registrar-se</h2>
         <form action="../controlador/controladorRegistrar.php" method="POST">
             <label for="nom">Nom:</label>
-            <input type="text" id="nom" name="nom">
+            <input type="text" id="nom" name="nom" value="<?php echo isset ($_POST['nom']) ? htmlspecialchars($_POST['nom']) : '' ; ?>"/>
 
             <label for="cognoms">Cognoms:</label>
-            <input type="text" id="cognoms" name="cognoms">
+            <input type="text" id="cognoms" name="cognoms" value="<?php echo isset ($_POST['cognoms']) ? htmlspecialchars($_POST['cognoms']) : '' ; ?>"/>
 
             <label for="usuari">Nom d'Usuari:</label>
-            <input type="text" id="usuari" name="usuari">
+            <input type="text" id="usuari" name="usuari" value="<?php echo isset ($_POST['usuari']) ? htmlspecialchars($_POST['usuari']) : '' ; ?>"/>
 
             <label for="email">Correu Electrònic:</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" value="<?php echo isset ($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ; ?>"/>
 
             <label for="contrasenya">Contrasenya:</label>
             <input type="password" id="contrasenya" name="contrasenya">
@@ -51,26 +51,22 @@
 
             <!-- MISSATGE D'ERROR Y DE CONFIRMACIÓ -->
             <?php if (!empty($errors)): ?>
-                <div class="alert error">
-                    <span class="alert-icon">⚠️</span> <!-- Icono de advertencia -->
+                <div class="alert error-container">
+                    <span class="alert-icon error-icon">⚠️</span> <!-- Icono de advertencia -->
                     <div>
                         <?php foreach ($errors as $error): ?>
-                            <p class="alert-text"><?php echo $error; ?></p>
+                            <p class="alert-text error-message"><?php echo $error; ?></p>
                         <?php endforeach; ?>
                     </div>
                 </div>
             <?php elseif (!empty($correcte)): ?>
-                <div class="alert success">
-                    <span class="alert-icon">✔️</span> <!-- Icono de éxito -->
+                <div class="alert success-container">
+                    <span class="alert-icon success-icon">✔️</span> <!-- Icono de éxito -->
                     <div>
-                        <p class="alert-text"><?php echo $correcte; ?></p>
+                        <p class="alert-text success-message"><?php echo $correcte; ?></p>
                     </div>
                 </div>
             <?php endif; ?>
-            <?php
-                $errors = [];
-                $correcte = "";
-            ?>
 
             <input type="submit" name="action" value="Registrar-se">
         </form>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estils/estilIniciarRegistrar.css">
     <link rel="stylesheet" href="../estils/estilBarra.css">
-    <link rel="stylesheet" href="../estils/estilError.css">
+    <link rel="stylesheet" href="../estils/estilErrors.css">
     <title>Iniciar sessió</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
 
         <!-- PERFIL -->
         <div class="perfil">
-            <a>PERFIL</a>
+            <a> PERFIL </a>
             <div class="dropdown-content">
                 <a href="../vista/vistaLogin.php">Iniciar sessió</a>
                 <a href="../vista/vistaRegistrarse.php">Registrar-se</a>

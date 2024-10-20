@@ -6,11 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estils/estilPersonatges.css">
     <link rel="stylesheet" href="../estils/estilBarra.css">
-    <link rel="stylesheet" href="../estils/estilError.css">
+    <link rel="stylesheet" href="../estils/estilErrors.css">
     <title>Inserir Personatge</title>
 </head>
 <script>
 </script>
+    <?php
+        // Verificar si la sesión no está activa.
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+    ?>
     <body>
         <nav>
             <!-- INICI y GESTIÓ D'ARTICLES -->
@@ -20,7 +26,11 @@
 
             <!-- PERFIL -->
             <div class="perfil">
-                <a>USUARI</a>
+                <a> <?php 
+                        $nomUsuari = $_SESSION["loginUsuari"]; 
+                        echo $nomUsuari;
+                    ?> 
+                </a>
                 <div class="dropdown-content">
                     <a href="../controlador/controladorTancarSessio.php">Tancar sessió</a>
                 </div>
@@ -40,26 +50,22 @@
 
                 <!-- MISSATGE D'ERROR Y DE CONFIRMACIÓ -->
                 <?php if (!empty($errors)): ?>
-                    <div class="alert error">
-                        <span class="alert-icon">⚠️</span> <!-- Icono de advertencia -->
+                    <div class="alert error-container">
+                        <span class="alert-icon error-icon">⚠️</span> <!-- Icono de advertencia -->
                         <div>
                             <?php foreach ($errors as $error): ?>
-                                <p class="alert-text"><?php echo $error; ?></p>
+                                <p class="alert-text error-message"><?php echo $error; ?></p>
                             <?php endforeach; ?>
                         </div>
                     </div>
                 <?php elseif (!empty($correcte)): ?>
-                    <div class="alert success">
-                        <span class="alert-icon">✔️</span> <!-- Icono de éxito -->
+                    <div class="alert success-container">
+                        <span class="alert-icon success-icon">✔️</span> <!-- Icono de éxito -->
                         <div>
-                            <p class="alert-text"><?php echo $correcte; ?></p>
+                            <p class="alert-text success-message"><?php echo $correcte; ?></p>
                         </div>
                     </div>
                 <?php endif; ?>
-                <?php
-                    $errors = [];
-                    $correcte = "";
-                ?>
 
                 <!-- INSERIR -->
                 <div class="button-group">

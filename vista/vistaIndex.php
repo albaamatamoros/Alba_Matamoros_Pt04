@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="estils/estilMostrar.css">
     <?php require_once './model/modelPersonatges.php'; ?>
     <title>Inici</title>
+    <script>
+        function confirmarEliminacion(idPersonatge) {
+            let confirmacion = confirm("Segur que vols esborrar aquest personatge?");
+            
+            if (confirmacion) {
+                window.location.href = '../controlador/controladorEsborrarIndex.php?id_personatge=' + idPersonatge;
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -29,7 +38,11 @@
                     <a href="vista/vistaLogin.php">Iniciar sessió</a>
                     <a href="vista/vistaRegistrarse.php">Registrar-se</a>
             <?php else: ?>
-                <a>USUARI</a>
+                <a> <?php 
+                        $nomUsuari = $_SESSION["loginUsuari"]; 
+                        echo $nomUsuari;
+                    ?> 
+                </a>
                 <div class="dropdown-content">
                     <!-- <a href="./vistaPerfil.php">El meu perfil</a> -->
                     <a href="./controlador/controladorTancarSessio.php">Tancar sessió</a>
@@ -71,9 +84,9 @@
                                 echo '<h2 class="personatge-nom">' . htmlspecialchars($personatge['nom']) . '</h2>';
                                 echo '<p class="personatge-cos">' . htmlspecialchars($personatge['cos']) . '</p>';
 
-                                // Botones de eliminar y modificar
+                                // ESBORRAR I MODIFICAR
                                 echo '<div class="personatge-botons">';
-                                echo '<a class="eliminar-btn" href="esborrar(' . $personatge['id_personatge'] . ')">🗑️</a>';
+                                echo '<a class="eliminar-btn" href="#" onclick="confirmarEliminacion(' . $personatge['id_personatge'] . ')">🗑️</a>';
                                 echo '<a class="modificar-btn" href="vistaModificar.php(' . $personatge['id_personatge'] . ')">✏️</a>';
                                 echo '</div>';      
 

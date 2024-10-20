@@ -64,6 +64,21 @@
         }
     }
 
+    function esborrarPerId($idPersonatge){
+        try {
+            //Sentència per esborrar per id.
+            $connexio = connexio();
+            $statement = $connexio->prepare('DELETE FROM personatges WHERE id_personatge = :id_personatge');
+            $statement->execute( 
+                array(
+                ':id_personatge' => $idPersonatge
+                )
+            );
+        } catch (Exception $e){
+            echo "Error: " . $e->getMessage(); 
+        }
+    }
+
     //********************************************************
     //SELECT
 

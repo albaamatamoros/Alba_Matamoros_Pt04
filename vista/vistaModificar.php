@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="../estils/estilErrors.css">
     <title>Modificar Personatge</title>
 </head>
+    <?php
+        // Verificar si la sesión no está activa.
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+    ?>
     <body>
         <nav>
             <!-- INICI y GESTIÓ D'ARTICLES -->
@@ -18,7 +24,11 @@
 
             <!-- PERFIL -->
             <div class="perfil">
-                <a>USUARI</a>
+                <a> <?php 
+                        $nomUsuari = $_SESSION["loginUsuari"]; 
+                        echo $nomUsuari;
+                    ?> 
+                </a>
                 <div class="dropdown-content">
                     <a href="../controlador/controladorTancarSessio.php">Tancar sessió</a>
                 </div>
@@ -54,7 +64,7 @@
                 <!-- MODIFICAR -->
                 <div class="button-group">
                     <input type="submit" name="action" value="Modificar" class="btn"/>
-                    <button onclick="location.href='vistaMenu.php'" type="button" class="btn">Tornar</button> 
+                    <button onclick="location.href='../vista/vistaMenu.php'" type="button" class="btn">Tornar</button> 
                 </div>
             </form>
         </div>
