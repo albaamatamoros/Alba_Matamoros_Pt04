@@ -12,8 +12,8 @@
         $accion = ($_POST["action"]);
         try {
             if ($accion == "Iniciar sessió"){
-                $usuari = ($_POST["usuari"]);
-                $contrasenya = ($_POST["contrasenya"]);
+                $usuari = htmlspecialchars(($_POST["usuari"]));
+                $contrasenya = htmlspecialchars(($_POST["contrasenya"]));
 
                 //Comprovar dades.
                 if (empty($usuari)) { $errors[] = "➤ No pots iniciar sessió amb un usuari buit."; } 

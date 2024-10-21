@@ -15,8 +15,8 @@
 
         try {
             if ($accion == "Modificar"){
-                $nom = $_POST["nom"];
-                $usuariId = $_SESSION["loginId"];
+                $nom = htmlspecialchars($_POST["nom"]);
+                $usuariId = htmlspecialchars($_SESSION["loginId"]);
 
                 //Control d'errors.
                 if (empty($nom)) $errors[] = "➤ Has de omplenar el nom per poder buscar el personatge que vols modificar.";

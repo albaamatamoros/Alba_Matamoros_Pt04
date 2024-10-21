@@ -13,12 +13,12 @@
         try {
             if ($accion == "Registrar-se"){
 
-                $nom = ($_POST["nom"]);
-                $cognoms = ($_POST["cognoms"]);
-                $usuari = ($_POST["usuari"]);
-                $email = ($_POST["email"]);
-                $contrasenya = ($_POST["contrasenya"]);
-                $confirmar_contrasenya = ($_POST["confirmar_contrasenya"]);
+                $nom = htmlspecialchars(($_POST["nom"]));
+                $cognoms = htmlspecialchars(($_POST["cognoms"]));
+                $usuari = htmlspecialchars(($_POST["usuari"]));
+                $email = htmlspecialchars(($_POST["email"]));
+                $contrasenya = htmlspecialchars(($_POST["contrasenya"]));
+                $confirmar_contrasenya = htmlspecialchars(($_POST["confirmar_contrasenya"]));
 
                 //Camps obligatoris.
                 if (empty($nom)) { $errors[] = "➤ El camp 'nom' és obligatori"; } 

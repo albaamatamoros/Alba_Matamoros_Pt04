@@ -15,8 +15,8 @@
 
         try {
             if ($accion == "Esborrar"){
-                $nom = $_POST["nom"];
-                $usuariId = $_SESSION["loginId"];
+                $nom = htmlspecialchars($_POST["nom"]);
+                $usuariId = htmlspecialchars($_SESSION["loginId"]);
 
                 //Control d'errors.
                 if (empty($nom)) $errors[] = "➤ Has de proporcionar un personatge per modificar-lo.";

@@ -1,3 +1,12 @@
+<?php 
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {  
+        setcookie("personatgesCookie", $_POST['select'], 0);
+        header("Location: ../vista/vistaConsultar.php");
+    } else if (!isset($_COOKIE['personatgesCookie'])) {
+        setcookie("personatgesCookie", 5 , 0);
+    }
+    require_once '../controlador/controladorPaginacioConsultarMenu.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +15,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estils/estilBarra.css">
     <link rel="stylesheet" href="../estils/estilMostrar.css">
-    <?php require_once '../controlador/controladorPaginacioConsultarMenu.php'; ?>
     <title>Consultar personatges</title>
 </head>
 <body>
@@ -38,7 +46,21 @@
         </div>
     </nav>
 
+    <!-- MOSTRAR PERSONATGES -->
     <section>
+
+        <div class="selectPersonatge">
+            <form action="" method="POST">
+                <select name="select" onchange="this.form.submit()">
+                <?php foreach([5, 10, 15, 20] as $num): ?>
+                    <option value="<?php echo $num; ?>" <?php if (isset($_COOKIE['personatgesCookie']) && $_COOKIE['personatgesCookie'] == $num) echo 'selected'; ?>>
+                        <?php echo $num; ?>
+                    </option>
+                <?php endforeach; ?>
+                </select>
+            </form>
+        </div>
+
         <!-- PERSONATGES GLOBALS -->
         <!-- Tornem la consulta amb tots els peronatges globals -->
         <div class="titulo"> <h1 class="titulo-personatges">Llista de Personatges Global</h1> </div>

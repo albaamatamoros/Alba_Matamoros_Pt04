@@ -13,9 +13,9 @@
 
         try {
             if ($accion == "Inserir"){
-                $nom = $_POST["nom"];
-                $text = $_POST["text"];
-                $usuariId = $_SESSION["loginId"];
+                $nom = htmlspecialchars($_POST["nom"]);
+                $text = htmlspecialchars($_POST["text"]);
+                $usuariId = htmlspecialchars($_SESSION["loginId"]);
 
                 //Control d'errors.
                 if (empty($nom)) $errors[] = "➤ El camp Nom està buit.";

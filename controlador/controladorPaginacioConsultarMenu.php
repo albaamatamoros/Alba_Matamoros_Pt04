@@ -5,10 +5,13 @@
     }
     require_once '../model/modelPaginacio.php';
 
+    define("PAGINA", 1);
+    //guardar els personatges per pagina.
+    define("PERSONATGES_PER_PAGINA", isset($_COOKIE["personatgesCookie"]) ? $_COOKIE["personatgesCookie"] : 5);
+
+    //Si es null, la pagina per defecte sera 1.
     $paginaActual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 
-    define("PERSONATGES_PER_PAGINA", 5);
-    
     if (isset($_SESSION['loginId'])){
         define("USUARI_ID", $_SESSION['loginId']);
     }

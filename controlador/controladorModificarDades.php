@@ -15,9 +15,9 @@
 
         try {
             if ($accion == "Modificar") {
-                $nom = $_POST["nom"];
-                $text = $_POST["text"];
-                $personatgeId = $_POST["id"];
+                $nom = htmlspecialchars($_POST["nom"]);
+                $text = htmlspecialchars($_POST["text"]);
+                $personatgeId = htmlspecialchars($_POST["id"]);
 
                 //Control d'errors.
                 if (empty($nom) && empty($text)) $errors[] = "➤ Si vols modificar alguna cosa, has de modificar com a mínim Nom o Descripció.";
