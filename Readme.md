@@ -2,8 +2,10 @@
 # Pràctica 04 - Inici d'usuaris i registre de sessions
 Si vols fer proves amb usuaris ja creats tots tenen el pasword = P@ssw0rd
 
+La temàtica de la meva pàgina és "Personatges de One piece", els usuaris han d'introduir tots els personatges existents actualment, cada usuari fa la seva aportació sense repetir l'usuari inserit per altra persona.
+
 ## Estructura
-index.php
+index.php ➜ Porta indexVista.php.
 
 - **Controlador:**
     - controladorCanviContra.php ➜ Control d'errors i canvi de contrasenya.
@@ -45,15 +47,39 @@ index.php
     - estilPersonatges.css ➜ Estils dels forms, (Inserir, Esborrar, Modificar...)
     - wallpaper.jpg ➜ Imatge fons de pantalla.
 
-## Funcionament
-### $_SESSION
-Utilitzo sessions per agafar les dades de l'usuari que vol iniciar sessió. Un cop l'usuari inicia sessió modifiquem on pot accedir.
 
-En iniciar apareix Gestió de personatges i a perfil apliquem el seu nom d'usuari, a més el desplegable es modifica amb altre valor per donar-te a entendre que està iniciat.
+Per la meva part m'agradaria comentar que al final vaig decidir dividir d'aquesta forma el model per fer-lo més entenedor i que no hi hagués tant volum de dades en un mateix fitxer.
 
-Les dades de l'usuari les recullo a controladorLogin.php, i les tracto en tota la web.
+## Sessions i cookies
+### $_SESSIONS
+    Utilitzo sessions per agafar les dades de l'usuari que vol iniciar sessió. Un cop l'usuari inicia sessió modifiquem on pot accedir.
+
+    En iniciar apareix Gestió de personatges i a perfil apliquem el seu nom d'usuari. A més, el desplegable es modifica mostren, Tancar Sessió i nova contrasenya.
+
+    Les dades de l'usuari les recullo a controladorLogin.php, i les tracto en tots els fitxers necessaris (pràcticament tots).
 
 ### $_COOKIES
-Les cookies són utilitzades en la paginació per guardar la preferència de personatges mostrats per pantalla a l'hora de paginar.
+    Les cookies són utilitzades en la paginació per guardar la preferència de personatges mostrats per pantalla a l'hora de paginar.
 
-Aquestes són tractades en vistaIndex.php que és on utilitzem aquest from/selection i a controladorPaginacio.php.
+    Aquestes són tractades en vistaIndex.php que és on utilitzem aquest from/selection i a controladorPaginacio.php.
+
+    En el meu cas, he fet que la cookie sigui infinita perquè sempre es guardi la preferència.
+
+## Funcionalitats
+Aquí explicaré arxius que potser a primera vista no s'entenen que són:
+
+    - controladorModificar.php
+    - controladorModificarDades.php
+
+    Aquests dos controladors van de la mà, controladorModificar busca l'usuari i passa l'id per GET i controladorModificarDades modifica qualsevol dada que entri nova l'usuari per modificar aquest.
+
+    A més, controladorModificarDades també s'utilitza quan l'usuari prem la icona del llapis, ja que quan pressiona el botó redirigim a aquest controlador amb l'id del personatge.
+
+    - controladorPaginacio.php
+    - controladorPaginacioConsultarMenu.php
+
+    Aquest dos controlador gestionen la paginació, controladorPaginacio controla tota la paginació d'inici i l'altre gestiona la paginació de l'apartat consultar.
+
+    - controladorEsborrarIndex.php
+
+    Aquest controlador és el que s'encarrega de gestionar els errors que poden succeir mentre intentem esborrar un personatge mitjançant la icona de la paperera.

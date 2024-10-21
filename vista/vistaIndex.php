@@ -1,11 +1,11 @@
 <?php 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {  
-    setcookie("personatgesCookie", $_POST['select'], 0);
-    header("Location: .");
-} else if (!isset($_COOKIE['personatgesCookie'])) {
-    setcookie("personatgesCookie",5,0);
-}
-require_once './controlador/controladorPaginacio.php';
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {  
+        setcookie("personatgesCookie", $_POST['select'], 0);
+        header("Location: .");
+    } else if (!isset($_COOKIE['personatgesCookie'])) {
+        setcookie("personatgesCookie", 5 , 0);
+    }
+    require_once './controlador/controladorPaginacio.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
