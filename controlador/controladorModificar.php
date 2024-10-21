@@ -19,24 +19,23 @@
                 $usuariId = $_SESSION["loginId"];
 
                 //Control d'errors.
-                if (empty($nom)) $errors[] = "Has de omplenar el nom per poder buscar el personatge que vols modificar.";
+                if (empty($nom)) $errors[] = "➤ Has de omplenar el nom per poder buscar el personatge que vols modificar.";
 
                 if (empty($errors)) {
                     //Guardem el resultat del select, si no trova res retornara FALSE.
                     $existe = selectComprovarNom($nom);
                     if ($existe == false){
-                        $errors[] = "No existeix cap personatge amb aquest Nom.";
+                        $errors[] = "➤ No existeix cap personatge amb aquest Nom.";
                     } else {
                         $creat = selectComprovarUsuariId($nom, $usuariId);
                         if ($creat == false){
-                            $errors[] = "No pots modificar un personatge que no es teu.";
+                            $errors[] = "➤ No pots modificar un personatge que no es teu.";
                         } else { 
                             $personatgeId = obtenerIdDelPersonatgePerNom($nom);
                             if ($personatgeId) {
                                 header("Location: ../vista/vistaModificarDades.php?id_personatge=$personatgeId");
-                            } else { $errors[] = "No es pot obtenir l'Id del personatge."; }
+                            } else { $errors[] = "➤No es pot obtenir l'Id del personatge."; }
                         }
-                        if (!empty($errors)) { include "../vista/vistaModificar.php"; }
                     }
                     if (!empty($errors)){ include "../vista/vistaModificar.php"; }
                 } else { include "../vista/vistaModificar.php"; }

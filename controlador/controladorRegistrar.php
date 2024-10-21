@@ -20,20 +20,21 @@
                 $contrasenya = ($_POST["contrasenya"]);
                 $confirmar_contrasenya = ($_POST["confirmar_contrasenya"]);
 
-                if (empty($nom)) { $errors[] = "El camp 'nom' és obligatori"; } 
-                if (empty($cognoms)) { $errors[] = "El camp 'cognoms' és obligatori"; }
-                if (empty($usuari)) { $errors[] = "El camp 'usuari' és obligatori"; }
+                //Camps obligatoris.
+                if (empty($nom)) { $errors[] = "➤ El camp 'nom' és obligatori"; } 
+                if (empty($cognoms)) { $errors[] = "➤ El camp 'cognoms' és obligatori"; }
+                if (empty($usuari)) { $errors[] = "➤ El camp 'usuari' és obligatori"; }
  
                 //CORREU
-                if (empty($email)) { $errors[] = "El camp 'correu' és obligatori"; } 
-                elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){ $errors[] = "El camp 'correu' no te un format correcte"; }
+                if (empty($email)) { $errors[] = "➤ El camp 'correu' és obligatori"; } 
+                elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){ $errors[] = "➤ El camp 'correu' no te un format correcte"; }
                 
                 //CONTRASENYA
-                if (empty($contrasenya)) { $errors[] = "El camp 'contrasenya' és obligatori"; }
+                if (empty($contrasenya)) { $errors[] = "➤ El camp 'contrasenya' és obligatori"; }
                 //Regex compir contrasenya.
-                elseif (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/', $contrasenya)){ $errors[] = "El format de la contrasenya no és correcte."; }
-                if (empty($confirmar_contrasenya)) { $errors[] = "El camp 'confirmar contrasenya' és obligatori"; }
-                if ( $contrasenya != $confirmar_contrasenya) { $errors[] = "Contrasenya i confirmar contrasenya no son iguals"; }
+                elseif (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/', $contrasenya)){ $errors[] = "➤ El format de la contrasenya no és correcte."; }
+                if (empty($confirmar_contrasenya)) { $errors[] = "➤ El camp 'confirmar contrasenya' és obligatori"; }
+                elseif ( $contrasenya != $confirmar_contrasenya) { $errors[] = "➤ Contrasenya i confirmar contrasenya no son iguals"; }
                 //Cifrar contrasenya.
                 else { $contrasenyaCifrada = password_hash($contrasenya, PASSWORD_DEFAULT); }
 
@@ -48,13 +49,13 @@
                         unset($_POST["usuari"]);
                         unset($_POST["email"]);
                         include "../vista/vistaRegistrarse.php"; 
-                    } else { $errors[] = "Aquest usuari o email ja exsisteix"; }
+                    } else { $errors[] = "➤ Aquest usuari o email ja exsisteix"; }
                     if (!empty($errors)){ 
                         include "../vista/vistaRegistrarse.php"; 
                     }
                 } else { include "../vista/vistaRegistrarse.php"; }
             } else { 
-                $errors[] = "No es pot completar aquesta acció.";
+                $errors[] = "➤ No es pot completar aquesta acció.";
                 include "../vista/vistaRegistrarse.php"; }
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();

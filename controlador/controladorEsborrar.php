@@ -19,16 +19,18 @@
                 $usuariId = $_SESSION["loginId"];
 
                 //Control d'errors.
-                if (empty($nom)) $errors[] = "Ha d'haver-hi almenys un camp omplert per trobar el personatge.";
+                if (empty($nom)) $errors[] = "➤ Has de proporcionar un personatge per modificar-lo.";
             
+                //COMPROVACIÓ A MODEL, EXSISTEIX PERSONATGE + USUARI.
                 if (empty($errors)){
                     $existe = selectComprovarNom($nom);
                     if ($existe == false){
-                        $errors[] = "No existeix cap Personatge amb aquest Nom.";
+                        $errors[] = "➤ No existeix cap Personatge amb aquest Nom.";
                     } else {
                         $creat = selectComprovarUsuariId($nom, $usuariId);
                         if ($creat == false){
-                            $errors[] = "No pots esborrar un personatge que no es teu.";
+                            //Si no es propi no es pot modificar.
+                            $errors[] = "➤ No pots esborrar un personatge que no es teu.";
                         } else { esborrar($nom); }
                         if (empty($errors)) { 
                             $correcte = "Article inserit correctament!";

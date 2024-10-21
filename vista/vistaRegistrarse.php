@@ -10,6 +10,12 @@
     <title>Registrar-se</title>
 </head>
 <body>
+    <?php //Verificar si la sessió no està activa. (Comprovació perquè no s'intenti accedir mitjançant ruta).
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (isset($_SESSION["loginId"])) { header("Location: ../index.php" );} 
+    ?>
     <!-- HEADER -->
     <nav>
         <!-- INICI y GESTIÓ D'ARTICLES -->

@@ -10,10 +10,11 @@
     <title>Modificar Personatge</title>
 </head>
     <?php
-        // Verificar si la sesión no está activa.
+        //Verificar si la sessió no està activa. (Comprovació perquè no s'intenti accedir mitjançant ruta).
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
+        if (!isset($_SESSION["loginId"])) { header("Location: ../index.php" );}
     ?>
     <body>
         <nav>
@@ -68,6 +69,7 @@
                     </div>
                 <?php endif; ?>
 
+                <!-- Agafem l'id del personatge per GET, desde index.php o vistaModificar.php -->
                 <?php 
                     if (isset($_GET["id_personatge"])) {
                         $personatgeId = $_GET["id_personatge"]; 
@@ -76,6 +78,7 @@
                     }
                 ?>
                 
+                <!-- Amb un input invisible pasem l'id a controlador -->
                 <input type="hidden" name="id" value="<?php echo isset($personatgeId) ? $personatgeId : ''; ?>"/>
 
                 <!-- MODIFICAR -->

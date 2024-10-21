@@ -15,16 +15,18 @@
                 $usuari = ($_POST["usuari"]);
                 $contrasenya = ($_POST["contrasenya"]);
 
-                if (empty($usuari)) { $errors[] = "No pots iniciar sessió amb un usuari buit."; } 
-                if (empty($contrasenya)) { $errors[] = "Et cal una contrasenya per iniciar sessió.";}
+                //Comprovar dades.
+                if (empty($usuari)) { $errors[] = "➤ No pots iniciar sessió amb un usuari buit."; } 
+                if (empty($contrasenya)) { $errors[] = "➤ Et cal una contrasenya per iniciar sessió.";}
                 if (empty($errors)) {
+                    //COMPROVAR USUARI I CONTRASENYA.
                     $existe = comprovarContrasenya($usuari);
                     if ($existe == false) {
-                        $errors[] = "No existeix aquest usuari";
+                        $errors[] = "➤ No existeix aquest usuari";
                     } else { 
                         $correct = password_verify($contrasenya, $existe['contrasenya']); 
                         if ($correct == false){
-                            $errors[] = "La contrasenya no es correcta";
+                            $errors[] = "➤ La contrasenya no es correcta";
                         } else {
                             $result = iniciSessio($usuari);
                             $_SESSION["loginId"] = $result["id_usuari"];

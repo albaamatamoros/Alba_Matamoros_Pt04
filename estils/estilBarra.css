@@ -15,7 +15,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Barra de navegación fija */
 nav {
     position: fixed;
     top: 0;
@@ -30,7 +29,6 @@ nav {
     z-index: 1000;
 }
 
-/* Estilos para los enlaces en la barra de navegación */
 nav a {
     text-decoration: none;
     color: white;
@@ -46,18 +44,15 @@ nav a:hover {
     background-color: #555;
 }
 
-/* Sección izquierda (INICI y GESTIÓ D'ARTICLES) */
 nav .left {
     display: flex;
     gap: 15px;
 }
 
-/* Sección derecha para PERFIL */
 nav .perfil {
     position: relative;
 }
 
-/* Ocultar el menú desplegable inicialmente */
 nav .perfil .dropdown-content {
     display: none;
     position: absolute;
@@ -68,12 +63,10 @@ nav .perfil .dropdown-content {
     z-index: 1;
 }
 
-/* Mostrar el menú desplegable al pasar sobre la sección de PERFIL */
 nav .perfil:hover .dropdown-content {
     display: block;
 }
 
-/* Estilos para los enlaces dentro del menú desplegable */
 nav .perfil .dropdown-content a {
     text-decoration: none;
     color: white;

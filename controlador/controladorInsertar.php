@@ -18,15 +18,15 @@
                 $usuariId = $_SESSION["loginId"];
 
                 //Control d'errors.
-                if (empty($nom)) $errors[] = "El camp Nom està buit.";
-                if (empty($text)) $errors[] = "El camp Text està buit.";
+                if (empty($nom)) $errors[] = "➤ El camp Nom està buit.";
+                if (empty($text)) $errors[] = "➤ El camp Text està buit.";
 
                 //Fem controls de comprovacions abans d'inserir les dades.
                 if (empty($errors)) {
                     $existe = selectComprovarNom($nom);
                     if ($existe == false){
                         inserir($nom, $text, $usuariId); 
-                    } else { $errors[] = "Ja exsisteix un personatge amb aquest nom."; }
+                    } else { $errors[] = "➤ Ja exsisteix un personatge amb aquest nom."; }
                     if (empty($errors)) { 
                         $correcte = "Personatge inserit correctament!";
                         unset($_POST["nom"]);

@@ -1,7 +1,7 @@
 <?php 
     //Alba Matamoros Morales
-
     require_once "connexio.php";
+
     //---------------
     //- PERSONATGES -
     //---------------
@@ -28,7 +28,7 @@
     //********************************************************
     //UPDATE
 
-    //Modificar article
+    //Modificar personatge.
     function modificar($nom, $text, $id){
         try {
             //Fem un update que modifica totes les dades a les noves introduides.
@@ -48,7 +48,7 @@
     //********************************************************
     //DELETE
 
-    //Esborrem personatge
+    //Esborrem personatge.
     function esborrar($nom){
         try {
             //Sentència per esborrar.
@@ -64,6 +64,7 @@
         }
     }
 
+    //esborrar personatge per id.
     function esborrarPerId($idPersonatge){
         try {
             //Sentència per esborrar per id.
@@ -95,6 +96,7 @@
         }
     }
 
+    //Obtenir id_personatge per el nom.
     function obtenerIdDelPersonatgePerNom($nom){
         try {
             $connexio = connexio();
@@ -177,6 +179,7 @@
         }
     }
 
+    //Consultar personatges per usuari en concret.
     function consultarPerUsuari($usuariId){
         try {
             $connexio = connexio();

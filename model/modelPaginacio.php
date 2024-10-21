@@ -1,13 +1,12 @@
 <?php
     //Alba Matamoros Morales
-
     require_once "connexio.php";
 
     //---------------
     //-- PAGINACIÓ --
     //---------------
 
-    //Consultem articles
+    //Consultem els personatges tenint en compte la paginació.
     function consultarPaginacio($pagina, $personatgesPerPag) {
         $offset = ($pagina - 1) * $personatgesPerPag; 
     
@@ -23,18 +22,16 @@
         }
     }
 
+    //Consultem els personatges per usuari tenint en compte la paginació.
     function consultarPerUsuariPaginacio($usuariId, $pagina, $personatgesPerPag) {
-        $offset = ($pagina - 1) * $personatgesPerPag; // Calcular el offset
+        $offset = ($pagina - 1) * $personatgesPerPag; // Calcular l'offset
     
         try {
             $connexio = connexio();
-            // Ajustar la consulta para incluir el limit y offset directamente
             $statement = $connexio->prepare('SELECT * FROM personatges WHERE usuari_id = :usuari_id LIMIT :limit OFFSET :offset');
             
-            // Vincula el parámetro :id_usuari
+            //Vinculem els paràmetres id_usuari, limit i offser
             $statement->bindValue(':usuari_id', $usuariId, PDO::PARAM_INT);
-    
-            // Vincula el límite y el offset como parámetros enteros
             $statement->bindValue(':limit', $personatgesPerPag, PDO::PARAM_INT);
             $statement->bindValue(':offset', $offset, PDO::PARAM_INT);
     

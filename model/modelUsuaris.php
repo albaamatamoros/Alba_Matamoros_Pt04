@@ -1,12 +1,13 @@
 <?php
     //Alba Matamoros Morales
-
     require_once "connexio.php";
     //------------
     //- USUARIOS -
     //------------
+
     //********************************************************
     //SELECT
+
     //Comprovar Usuari I Contrasenya exsistent.
     function comprovarUsuariIContrasenya($usuari, $contrasenya){
         try {
@@ -39,6 +40,7 @@
         }
     }
 
+    //comprovem l'usuari i agafem la contrasenya.
     function comprovarContrasenya($usuari){
         try {
             $connexio = connexio();
@@ -53,6 +55,7 @@
         }
     }
 
+    //Comprovar la contrasenya per id.
     function comprovarContrasenyaId($usuariId){
         try {
             $connexio = connexio();
@@ -92,6 +95,7 @@
     //********************************************************
     //MODIFICAR
 
+    //modificar la contrasenya de l'usuari.
     function modificarContrasenya($contrasenyaCifrada, $usuariId){
         try {
             //Fem un update que modifica totes les dades a les noves introduides.
@@ -109,6 +113,8 @@
 
     //********************************************************
     //INICIAR SESSIÓN
+    
+    //Agafar les dades d'inici sessió.
     function iniciSessio($usuari){
         try {
             $connexio = connexio();

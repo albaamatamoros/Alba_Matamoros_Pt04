@@ -1,29 +1,28 @@
 <?php
+    //Alba Matamoros Morales.    
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
     require_once './model/modelPaginacio.php';
 
+    define("PAGINA", 1);
+    //guardar els personatges per pagina.
+    define("PERSONATGES_PER_PAGINA", isset($_COOKIE["personatgesCookie"]) ? $_COOKIE["personatgesCookie"] : 5);
+
+    //Si es null, la pagina per defecte sera 1.
     $paginaActual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 
-    define("PAGINA", isset($_COOKIE["paginaCookie"]) ? $_COOKIE["paginaCookie"] : 1);
-    define("PERSONATGES_PER_PAGINA", 5);
-
-    //setear la cookie, -> 0 = quan expira la cookie (mai expira).
-    setcookie("paginaCookie", $paginaActual, 0);
-    
     if (isset($_SESSION['loginId'])){
         define("USUARI_ID", $_SESSION['loginId']);
     }
     
     //CREAR ELS LINKS DE LA PAGINACIÓ PER USUARI.
-    function retornarLinksPerUsuari($paginaActual = PAGINA){
+    function retornarLinksPerUsuari($paginaActual = PAGINA, $personatgesPerPagina = PERSONATGES_PER_PAGINA){
 
         $mostrarPaginacio = "";
         
         $totalPersonatges = countPersonatgesPerUsuari(USUARI_ID);
-        $totalPagines = ceil($totalPersonatges / PERSONATGES_PER_PAGINA);
-        //setear la cookie, -> 0 = quan expira la cookie (mai expira).
+        $totalPagines = ceil($totalPersonatges / $personatgesPerPagina);
 
         // Evitar que la página actual exceda los límites
         if ($paginaActual < 1) {

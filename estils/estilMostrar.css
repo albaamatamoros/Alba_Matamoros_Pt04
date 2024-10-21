@@ -5,7 +5,7 @@
 /* ------------------------------------*/
 
 body {
-    background-image: url("../wallpaper.jpg");
+    background-image: url("wallpaper.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -24,7 +24,6 @@ section {
     align-items: center;
 }
 
-/* Título de la lista de personajes */
 .titulo-personatges {
     background-color: #f4f4f9;
     border-radius: 10px;
@@ -37,17 +36,15 @@ section {
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-top: 60px; /* Añadir espacio debajo de la barra de inicio */
+    margin-top: 60px; 
 }
 
-/* Contenedor principal de los personajes */
 .personatges-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajuste para un diseño más responsivo */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 15px;
 }
 
-/* Caja individual de cada personaje */
 .personatge-box {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     background-color: #f4f4f9;
@@ -55,58 +52,51 @@ section {
     border-radius: 8px;
     padding: 15px;
     text-align: center;
-    position: relative; /* Para que los botones se alineen dentro de la caja */
+    position: relative; 
     transition: transform 0.3s, box-shadow 0.3s;
-    min-height: 200px; /* Fijar una altura mínima */
+    min-height: 200px; 
 }
 
-/* Hover para la caja de cada personaje */
 .personatge-box:hover {
     transform: translateY(-10px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
-/* Nombre del personaje */
 .personatge-nom {
     font-size: 1.6rem;
     margin-bottom: 8px;
     color: #333;
 }
 
-/* Descripción o cuerpo del personaje */
 .personatge-cos {
     font-size: 0.9rem;
     color: #666;
     margin-bottom: 12px;
 }
 
-/* Contenedor de los botones dentro del bloque */
 .personatge-botons {
     position: absolute;
-    bottom: 10px; /* Posicionar los botones en la parte inferior del bloque */
+    bottom: 10px; 
     left: 50%;
-    transform: translateX(-50%); /* Centrar los botones */
+    transform: translateX(-50%); 
     display: flex;
-    gap: 10px; /* Espaciado entre los botones */
+    gap: 10px; 
 }
 
-/* Estilo general para los botones */
 .personatge-botons a {
     padding: 10px;
     font-size: 1.2rem;
-    border-radius: 5px; /* Hacer los botones cuadrados */
+    border-radius: 5px;
     color: white;
-    width: 40px; /* Tamaño fijo para hacer los botones cuadrados */
+    width: 40px; 
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: transform 0.3s, background-color 0.3s;
-    text-decoration: none; /* Evitar subrayado en los iconos */
-}
+    text-decoration: none; }
 
-/* Botón de eliminar */
 .eliminar-btn {
     background-color: #e74c3c;
 }
@@ -115,7 +105,6 @@ section {
     background-color: #c0392b;
 }
 
-/* Botón de modificar */
 .modificar-btn {
     background-color: #3498db;
 }
@@ -124,15 +113,14 @@ section {
     background-color: #2980b9;
 }
 
-/* Responsividad */
 @media (max-width: 768px) {
     .personatge-box {
-        padding: 12px; /* Menor padding en pantallas pequeñas */
+        padding: 12px;
     }
 
     .titulo-personatges {
         font-size: 2rem;
-        margin-top: 40px; /* Ajustar margen superior en móviles */
+        margin-top: 40px; 
     }
 
     .personatge-nom {
@@ -155,7 +143,7 @@ section {
     }
 
     .personatge-botons a {
-        width: 35px; /* Tamaño más pequeño para botones en pantallas pequeñas */
+        width: 35px; 
         height: 35px;
     }
 }
@@ -166,12 +154,11 @@ section {
     align-items: center;
 }
 
-/* Estilo general para los enlaces de paginación */
 a.activat {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     text-decoration: none;
     color: #fff;
-    background-color: #424242; /* Gris oscuro */
+    background-color: #424242; 
     padding: 10px 20px;
     margin: 0 5px;
     border-radius: 5px;
@@ -180,25 +167,38 @@ a.activat {
 
 a.activat:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-    background-color: #616161; /* Color gris más claro al pasar el cursor */
+    background-color: #616161; 
 }
 
-/* Estilo para los enlaces desactivados */
 a.desactivat, a.desactivado {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     text-decoration: none;
-    color: #bdbdbd; /* Color gris claro para texto */
-    background-color: #757575; /* Fondo gris oscuro más suave */
+    color: #bdbdbd;
+    background-color: #757575; 
     padding: 10px 20px;
     margin: 0 5px;
     border-radius: 5px;
-    pointer-events: none; /* Deshabilitar clic en enlaces desactivados */
+    pointer-events: none; 
 }
 
-/* Estilo adicional para el botón de la página actual */
 a.desactivado {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-    font-weight: bold; /* Negrita para destacar la página actual */
-    color: #eeeeee; /* Gris claro para la página actual */
+    font-weight: bold; 
+    color: #eeeeee; 
 }
 
+/* FORM SELECCIO PERSONATGE SPER PAGINA */
+
+.selectPersonatge {
+    position: absolute;
+    top: 115px;
+}
+
+.selectPersonatge select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f4f4f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}

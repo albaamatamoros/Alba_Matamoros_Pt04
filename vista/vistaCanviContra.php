@@ -10,7 +10,7 @@
     <title>Registrar-se</title>
 </head>
     <?php
-        // Verificar si la sesión no está activa.
+        //Verificar si la sessió no està activa. (Comprovació perquè no s'intenti accedir mitjançant ruta).
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }

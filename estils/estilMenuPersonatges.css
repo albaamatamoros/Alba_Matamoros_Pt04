@@ -4,7 +4,6 @@
 /* -- MENÚ: INSERTAR, ELIMINAR..... --*/
 /* ------------------------------------*/
 
-/* Estilo básico para eliminar márgenes y padding */
 * {
     margin: 0;
     padding: 0;
@@ -12,21 +11,18 @@
     font-family: Arial, sans-serif;
 }
 
-/* Estilo general del body */
 body {
-    background-image: url("../wallpaper.jpg");
+    background-image: url("wallpaper.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-color: #f4f4f4; */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin-top: 60px; /* Espacio superior */
+    margin-top: 60px;
     padding: 20px;
 }
 
-/* Contenedor principal */
 .button-container {
     background-color: #fff;
     padding: 30px;
@@ -37,14 +33,12 @@ body {
     text-align: center;
 }
 
-/* Título */
 .button-container h1 {
     color: #333;
     margin-bottom: 20px;
     font-size: 24px;
 }
 
-/* Estilo para los botones */
 .button-container .btn {
     text-decoration: none;
     color: inherit;
@@ -61,7 +55,6 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* Efecto hover en los botones */
 .button-container .btn:hover {
     background-color: #555;
 }
