@@ -25,7 +25,7 @@
                 if (empty($errors)){
                     $existe = selectComprovarNom($nom);
                     if ($existe == false){
-                        $errors[] = "➤ No existeix cap Personatge amb aquest Nom.";
+                        $errors[] = "➤ No existeix cap personatge amb aquest Nom.";
                     } else {
                         $creat = selectComprovarUsuariId($nom, $usuariId);
                         if ($creat == false){
@@ -36,7 +36,8 @@
                             $correcte = "Article inserit correctament!";
                             include "../vista/vistaEsborrar.php";
                         } else { include "../vista/vistaEsborrar.php"; }
-                    }
+                    } 
+                    if (!empty($errors)) { include "../vista/vistaEsborrar.php"; }
                 } else { include "../vista/vistaEsborrar.php"; }
             } else { 
                 $errors[] = "No es pot completar aquesta acció.";
