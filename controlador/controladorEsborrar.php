@@ -33,7 +33,7 @@
                             $errors[] = "➤ No pots esborrar un personatge que no es teu.";
                         } else { esborrar($nom); }
                         if (empty($errors)) { 
-                            $correcte = "Article inserit correctament!";
+                            $correcte = "Article esborrat correctament!";
                             include "../vista/vistaEsborrar.php";
                         } else { include "../vista/vistaEsborrar.php"; }
                     } 

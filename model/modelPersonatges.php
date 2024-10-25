@@ -147,7 +147,7 @@
                 ':usuari_id' => $usuariId,
                 ':nom' => $nom)
             );
-            return $statement->fetch();
+            return $statement->fetch(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
         }

@@ -1,6 +1,8 @@
 <?php
     //Alba Matamoros Morales
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
     //Array d'errors.
     $errors = [];
     //Comprovar l'exsistencia d'un usuari.
@@ -20,7 +22,7 @@
                 $personatgeId = htmlspecialchars($_POST["id"]);
 
                 //Control d'errors.
-                if (empty($nom) && empty($text)) $errors[] = "➤ Si vols modificar alguna cosa, has de modificar com a mínim Nom o Descripció.";
+                if (empty($nom) && empty($text)) $errors[] = "➤ Nom i descripcio no poden ser buits.";
 
                 if (empty($errors)) {
                     //Guardem el resultat del select, si no trova res retornara FALSE.
@@ -30,14 +32,16 @@
                     } else {
                         $PersonatgeBD = selectPersonatgePerId($personatgeId);
 
-                        if (empty($nom)) $nom = $PersonatgeBD["nom"];
-                        if (empty($text)) $text = $PersonatgeBD["cos"];
+                        if (empty($nom)) $errors = "➤ El camp nom no pot ser buit";
+                        if (empty($text)) $errors = "➤ El camp descripcio no pot ser buit";
                     }
                     //Comprovem si s'ha generat algun error en el proces, sino s'envia un missatge dient que esta tot correcte. 
                     if (empty($errors)){
                         modificar($nom, $text, $personatgeId);
                         $correcte = "Personatge modificat correctament!";
-                        include "../vista/vistaModificarDades.php";
+                        unset($PersonatgeBD["nom"]);
+                        unset($PersonatgeBD["cos"]);
+                        header("Location: ../index.php" );
                     } else { include "../vista/vistaModificarDades.php"; }
                 } else { include "../vista/vistaModificarDades.php"; }  
             } else {

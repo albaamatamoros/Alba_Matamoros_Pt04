@@ -30,7 +30,8 @@
                         $creat = selectComprovarUsuariId($nom, $usuariId);
                         if ($creat == false){
                             $errors[] = "➤ No pots modificar un personatge que no es teu.";
-                        } else { 
+                        } else {
+                            
                             $personatgeId = obtenerIdDelPersonatgePerNom($nom);
                             if ($personatgeId) {
                                 header("Location: ../vista/vistaModificarDades.php?id_personatge=$personatgeId");

@@ -20,7 +20,7 @@
         <nav>
             <!-- INICI y GESTIÓ D'ARTICLES -->
             <div class="left">
-                <a href='../index.php'">INICI</a>
+                <a href='../index.php'>INICI</a>
                 <a href="../vista/vistaMenu.php">GESTIÓ DE PERSONATGES</a>
             </div>
 
@@ -38,6 +38,20 @@
             </div>
         </nav>
 
+        <!-- Agafem l'id del personatge per GET, desde index.php o vistaModificar.php -->
+        <?php 
+            require_once "../model/modelPersonatges.php";
+
+            if (isset($_GET["id_personatge"])) {
+                $personatgeId = $_GET["id_personatge"];
+                $personatgeBD = selectPersonatgePerId($personatgeId);
+        
+                if (empty($personatgeBD)) {
+                    $errors[] = "No s'han trobat dades per a aquest personatge.";
+                }
+            }
+        ?>
+
         <!-- MODIFICAR PERSONATGE -->
         <div class="button-container">
             <h1>MODIFICAR PERSONATGE</h1>
@@ -45,10 +59,10 @@
             <form action="../controlador/controladorModificarDades.php" method="POST">
 
                 <label for="nom">Nom:</label>
-                <input type="text" id="nom" name="nom"/>
+                <input type="text" id="nom" name="nom" value="<?php echo isset($personatgeBD["nom"]) ? $personatgeBD["nom"] : ''; ?>"/>
                     
                 <label for="text">Descripció:</label>
-                <input type="text" id="text" name="text"></input>
+                <input type="text" id="text" name="text" value="<?php echo isset($personatgeBD["cos"]) ? $personatgeBD["cos"] : ''; ?>"/>
 
                 <!-- MISSATGE D'ERROR Y DE CONFIRMACIÓ -->
                 <?php if (!empty($errors)): ?>
@@ -67,17 +81,7 @@
                             <p class="alert-text success-message"><?php echo $correcte; ?></p>
                         </div>
                     </div>
-                <?php endif; ?>
-
-                <!-- Agafem l'id del personatge per GET, desde index.php o vistaModificar.php -->
-                <?php 
-                    if (isset($_GET["id_personatge"])) {
-                        $personatgeId = $_GET["id_personatge"]; 
-                    } else {
-                        $errors[] = "No s'ha trobat l'ID del personatge.";
-                    }
-                ?>
-                
+                <?php endif; ?>                
                 <!-- Amb un input invisible pasem l'id a controlador -->
                 <input type="hidden" name="id" value="<?php echo isset($personatgeId) ? $personatgeId : ''; ?>"/>
 
